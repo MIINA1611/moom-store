@@ -1,0 +1,2048 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مووم ستور | MOOM STORE - هدايا مطبوعة بشغف (UI/UX & Design System)</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts as immediate high-precision fallbacks for Thmanyah Serif & Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        moom: {
+                            burgundy: '#4D1227',     /* اللون الأساسي من اللوجو */
+                            berry: '#731C3B',        /* عنابي فاتح للتفاعل */
+                            dark: '#230912',         /* نص داكن جداً */
+                            gold: '#F5A623',         /* ذهبي شريطة الهدية من اللوجو */
+                            goldDark: '#D4880F',     /* ذهبي داكن للتباين */
+                            goldLight: '#FFF4E0',    /* خلفية ذهبية ناعمة */
+                            cream: '#FCF9F5',        /* خلفية ورقية دافئة */
+                            sand: '#F3ECE3',         /* لون البطاقات والورق المطبوع */
+                            border: '#E5D9C8',       /* حدود ناعمة */
+                        }
+                    },
+                    fontFamily: {
+                        display: ['thmanyahserifdisplay', 'Amiri', 'Noto Naskh Arabic', 'serif'],
+                        serifText: ['thmanyahseriftext', 'Noto Naskh Arabic', 'Amiri', 'serif'],
+                        sans: ['thmanyahsans', 'IBM Plex Sans Arabic', 'sans-serif'],
+                        brandEn: ['Plus Jakarta Sans', 'sans-serif']
+                    },
+                    boxShadow: {
+                        'soft': '0 12px 32px -8px rgba(77, 18, 39, 0.08)',
+                        'elevated': '0 20px 45px -12px rgba(77, 18, 39, 0.16)',
+                        'gold-glow': '0 10px 25px -5px rgba(245, 166, 35, 0.35)'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* ==========================================================================
+           إعدادات خط ثمانية (Thmanyah Typeface @font-face) حسب ملفات المجلد المرفق
+           ========================================================================== */
+        
+        /* 1. Thmanyah Serif Display (للعناوين الإبداعية والافتتاحية) */
+        @font-face {
+            font-family: 'thmanyahserifdisplay';
+            src: local('thmanyahserifdisplay-Light'), url('thmanyah typeface/thmanyahserifdisplay/woff2/thmanyahserifdisplay-Light.woff2') format('woff2');
+            font-weight: 300;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'thmanyahserifdisplay';
+            src: local('thmanyahserifdisplay-Regular'), url('thmanyah typeface/thmanyahserifdisplay/woff2/thmanyahserifdisplay-Regular.woff2') format('woff2');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'thmanyahserifdisplay';
+            src: local('thmanyahserifdisplay-Medium'), url('thmanyah typeface/thmanyahserifdisplay/woff2/thmanyahserifdisplay-Medium.woff2') format('woff2');
+            font-weight: 500;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'thmanyahserifdisplay';
+            src: local('thmanyahserifdisplay-Bold'), url('thmanyah typeface/thmanyahserifdisplay/woff2/thmanyahserifdisplay-Bold.woff2') format('woff2');
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'thmanyahserifdisplay';
+            src: local('thmanyahserifdisplay-Black'), url('thmanyah typeface/thmanyahserifdisplay/woff2/thmanyahserifdisplay-Black.woff2') format('woff2');
+            font-weight: 900;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /* 2. Thmanyah Serif Text (للنصوص القصصية وبطاقات الإهداء) */
+        @font-face {
+            font-family: 'thmanyahseriftext';
+            src: local('thmanyahseriftext-Light'), url('thmanyah typeface/thmanyahseriftext/woff2/thmanyahseriftext-Light.woff2') format('woff2');
+            font-weight: 300;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'thmanyahseriftext';
+            src: local('thmanyahseriftext-Regular'), url('thmanyah typeface/thmanyahseriftext/woff2/thmanyahseriftext-Regular.woff2') format('woff2');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'thmanyahseriftext';
+            src: local('thmanyahseriftext-Medium'), url('thmanyah typeface/thmanyahseriftext/woff2/thmanyahseriftext-Medium.woff2') format('woff2');
+            font-weight: 500;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'thmanyahseriftext';
+            src: local('thmanyahseriftext-Bold'), url('thmanyah typeface/thmanyahseriftext/woff2/thmanyahseriftext-Bold.woff2') format('woff2');
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'thmanyahseriftext';
+            src: local('thmanyahseriftext-Black'), url('thmanyah typeface/thmanyahseriftext/woff2/thmanyahseriftext-Black.woff2') format('woff2');
+            font-weight: 900;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /* 3. Thmanyah Sans (للواجهات والأزرار وتجربة المستخدم) */
+        @font-face {
+            font-family: 'thmanyahsans';
+            src: local('thmanyahsans-Light'), url('thmanyah typeface/thmanyahsans/woff2/thmanyahsans-Light.woff2') format('woff2');
+            font-weight: 300;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'thmanyahsans';
+            src: local('thmanyahsans-Regular'), url('thmanyah typeface/thmanyahsans/woff2/thmanyahsans-Regular.woff2') format('woff2');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'thmanyahsans';
+            src: local('thmanyahsans-Medium'), url('thmanyah typeface/thmanyahsans/woff2/thmanyahsans-Medium.woff2') format('woff2');
+            font-weight: 500;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'thmanyahsans';
+            src: local('thmanyahsans-Bold'), url('thmanyah typeface/thmanyahsans/woff2/thmanyahsans-Bold.woff2') format('woff2');
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'thmanyahsans';
+            src: local('thmanyahsans-Black'), url('thmanyah typeface/thmanyahsans/woff2/thmanyahsans-Black.woff2') format('woff2');
+            font-weight: 900;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /* أنماط الورق المطبوع والملمس الإبداعي */
+        body {
+            background-color: #FCF9F5;
+            color: #230912;
+            font-family: 'thmanyahsans', 'IBM Plex Sans Arabic', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .paper-texture {
+            background-image: radial-gradient(rgba(77, 18, 39, 0.04) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+
+        /* شريطة الهدية الذهبية المتحركة */
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-8px) rotate(1.5deg); }
+        }
+        .animate-float {
+            animation: floatSlow 5s ease-in-out infinite;
+        }
+
+        @keyframes pulseGold {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(245, 166, 35, 0.4); }
+            50% { box-shadow: 0 0 0 12px rgba(245, 166, 35, 0); }
+        }
+        .pulse-gold {
+            animation: pulseGold 2.5s infinite;
+        }
+
+        /* شريط التمرير المخصص */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F3ECE3;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4D1227;
+            border-radius: 9999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #731C3B;
+        }
+
+        /* تأثير ختم الشمع / الطابع المطبوع */
+        .wax-seal {
+            background: radial-gradient(circle at 30% 30%, #731C3B, #4D1227 70%, #2E0916 100%);
+            box-shadow: inset 0 2px 4px rgba(255,255,255,0.25), 0 6px 14px rgba(77,18,39,0.3);
+        }
+
+        /* خط متقطع كقصاصات الطباعة */
+        .print-cutline {
+            background-image: linear-gradient(to left, #D4880F 50%, rgba(255,255,255,0) 0%);
+            background-position: bottom;
+            background-size: 12px 1.5px;
+            background-repeat: repeat-x;
+        }
+    </style>
+</head>
+<body class="paper-texture selection:bg-moom-gold selection:text-moom-dark">
+
+    <!-- ==========================================================================
+         شريط علوي تفاعلي للتبديل بين (واجهة المتجر) و (نظام التصميم UI/UX + خط ثمانية)
+         ========================================================================== -->
+    <div class="bg-moom-dark text-moom-cream text-xs sm:text-sm py-2.5 px-4 border-b border-moom-burgundy/40 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+            <!-- مبدل وضع العرض (UX Prototype vs Design System) -->
+            <div class="flex items-center gap-1.5 bg-white/10 p-1 rounded-full">
+                <button onclick="switchAppMode('store')" id="mode-btn-store" class="px-3.5 py-1 rounded-full font-bold transition-all bg-moom-gold text-moom-dark shadow-sm flex items-center gap-1.5">
+                    <i data-lucide="Sparkles" class="w-3.5 h-3.5"></i>
+                    <span>واجهة المتجر التفاعلية (Live UX)</span>
+                </button>
+                <button onclick="switchAppMode('design-system')" id="mode-btn-ds" class="px-3.5 py-1 rounded-full font-medium transition-all text-moom-cream/80 hover:text-white flex items-center gap-1.5">
+                    <i data-lucide="Layers" class="w-3.5 h-3.5"></i>
+                    <span>نظام التصميم والهوية (UI/UX & خط ثمانية)</span>
+                </button>
+            </div>
+
+            <!-- عرض ترويجي ومحمّل خط ثمانية المحلي -->
+            <div class="hidden lg:flex items-center gap-2 text-moom-goldLight/90 font-serifText">
+                <span class="inline-block w-2 h-2 rounded-full bg-moom-gold animate-ping"></span>
+                <span>تغليف «شريطة مووم الذهبية» مجاناً للطلبات فوق 800 ج.م + كارت إهداء مطبوع باسمك!</span>
+            </div>
+
+            <!-- زر ربط ملفات خط ثمانية المحلية -->
+            <div class="flex items-center gap-2">
+                <button onclick="openFontLoaderModal()" class="text-xs bg-moom-burgundy hover:bg-moom-berry text-moom-gold border border-moom-gold/40 px-3 py-1 rounded-full transition flex items-center gap-1.5" title="ارفع ملفات خط ثمانية .woff2 أو .otf من جهازك لتطبيقها فوراً">
+                    <i data-lucide="Type" class="w-3.5 h-3.5"></i>
+                    <span id="font-status-badge">خط ثمانية: مُفعّل</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================================================
+         الهيدر الرئيسي وشعار مووم ستور (Moom Store Header)
+         ========================================================================== -->
+    <header class="bg-moom-cream/90 backdrop-blur-md border-b border-moom-border sticky top-[45px] z-40 transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 sm:h-24 flex items-center justify-between gap-4">
+            
+            <!-- القائمة اليمنى (روابط التنقل السريع) -->
+            <nav class="hidden md:flex items-center gap-6 lg:gap-8 text-sm lg:text-base font-medium text-moom-dark">
+                <a href="#hero-section" onclick="ensureStoreMode()" class="hover:text-moom-burgundy transition flex items-center gap-1 font-bold text-moom-burgundy">
+                    <span>الرئيسية</span>
+                </a>
+                <a href="#print-studio" onclick="ensureStoreMode()" class="hover:text-moom-burgundy transition flex items-center gap-1.5 bg-moom-goldLight px-3 py-1.5 rounded-full border border-moom-gold/40 text-moom-burgundy font-bold">
+                    <i data-lucide="Wand2" class="w-4 h-4 text-moom-goldDark"></i>
+                    <span>استوديو الطباعة التفاعلي</span>
+                </a>
+                <a href="#catalog-section" onclick="ensureStoreMode()" class="hover:text-moom-burgundy transition">هدايا مطبوعة</a>
+                <a href="#packaging-section" onclick="ensureStoreMode()" class="hover:text-moom-burgundy transition">تغليف مووم</a>
+                <button onclick="switchAppMode('design-system')" class="text-moom-berry hover:text-moom-burgundy transition flex items-center gap-1">
+                    <i data-lucide="Palette" class="w-4 h-4"></i>
+                    <span>دليل UI/UX</span>
+                </button>
+            </nav>
+
+            <!-- الشعار الرسمي المرسوم بدقة SVG المطابق للصورة المرفقة -->
+            <a href="#" onclick="switchAppMode('store')" class="flex-shrink-0 group focus:outline-none" aria-label="MOOM STORE Logo">
+                <div class="bg-white px-4 py-2 rounded-2xl border border-moom-border/80 shadow-sm group-hover:shadow-md group-hover:border-moom-gold/60 transition-all">
+                    <svg class="h-12 sm:h-14 w-auto" viewBox="0 0 380 148" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- شريطة الهدية الذهبية أعلى حرف M الأيسر كما في الشعار الأصلي -->
+                        <g class="origin-center transition-transform duration-500 group-hover:scale-105">
+                            <!-- الحلقة اليسرى للشريطة -->
+                            <path d="M52 46 C22 47, 14 26, 30 17 C44 10, 62 28, 70 39 C56 32, 42 20, 34 25 C26 30, 35 42, 52 46 Z" fill="#F5A623"/>
+                            <!-- الحلقة اليمنى للشريطة -->
+                            <path d="M72 39 C80 22, 96 4, 110 12 C123 19, 112 42, 86 45 C101 38, 111 24, 104 19 C97 14, 83 26, 72 39 Z" fill="#F5A623"/>
+                            <!-- طرف الشريطة المنسدل بخطوط انسيابية -->
+                            <path d="M32 49 C50 50, 65 44, 72 40 C81 44, 98 44, 114 36" stroke="#F5A623" stroke-width="4" stroke-linecap="round"/>
+                        </g>
+
+                        <!-- حروف MOOM باللون العنابي العميق #4D1227 -->
+                        <!-- الحرف M الأول مع القطع السلبي تحت الشريطة -->
+                        <path d="M35 49 L35 90 L50 90 L50 61 L71 86 L92 61 L92 90 L107 90 L107 37 C98 43, 86 45, 72 42 L71 65 L52 43 C45 46, 39 48, 35 49 Z" fill="#4D1227"/>
+                        
+                        <!-- الحرف O الأول -->
+                        <circle cx="155" cy="60" r="29" stroke="#4D1227" stroke-width="15" fill="none"/>
+                        
+                        <!-- الحرف O الثاني -->
+                        <circle cx="235" cy="60" r="29" stroke="#4D1227" stroke-width="15" fill="none"/>
+                        
+                        <!-- الحرف M الأخير بحواف هندسية حادة -->
+                        <path d="M282 90 L282 30 L285 30 L317 69 L349 30 L352 30 L352 90 L337 90 L337 56 L317 80 L297 56 L297 90 Z" fill="#4D1227"/>
+
+                        <!-- كلمة S T O R E المتباعدة -->
+                        <text x="195" y="116" text-anchor="middle" fill="#4D1227" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="20" letter-spacing="14">STORE</text>
+
+                        <!-- — مووم ستور — مع الخطين الجانبيين -->
+                        <line x1="65" y1="137" x2="122" y2="137" stroke="#4D1227" stroke-width="2.5" stroke-linecap="round"/>
+                        <text x="195" y="142" text-anchor="middle" fill="#4D1227" font-family="'thmanyahsans', 'IBM Plex Sans Arabic', sans-serif" font-weight="700" font-size="19">مووم ستور</text>
+                        <line x1="268" y1="137" x2="325" y2="137" stroke="#4D1227" stroke-width="2.5" stroke-linecap="round"/>
+                    </svg>
+                </div>
+            </a>
+
+            <!-- إجراءات المستخدم (البحث، المفضلة، السلة، صمم هديتك) -->
+            <div class="flex items-center gap-2.5 sm:gap-3">
+                <button onclick="scrollToStudio()" class="hidden sm:inline-flex items-center gap-2 bg-moom-burgundy hover:bg-moom-berry text-white text-sm font-bold px-4 py-2.5 rounded-xl shadow-soft transition transform hover:-translate-y-0.5">
+                    <i data-lucide="PenTool" class="w-4 h-4 text-moom-gold"></i>
+                    <span>صمّم هديتك</span>
+                </button>
+
+                <!-- زر السلة التفاعلي -->
+                <button onclick="toggleCartDrawer(true)" class="relative p-2.5 sm:px-4 sm:py-2.5 rounded-xl bg-moom-sand hover:bg-moom-goldLight border border-moom-border text-moom-burgundy transition flex items-center gap-2" aria-label="سلة المشتريات">
+                    <i data-lucide="ShoppingBag" class="w-5 h-5"></i>
+                    <span class="hidden sm:inline text-sm font-bold">السلة</span>
+                    <span id="cart-count-badge" class="bg-moom-gold text-moom-dark text-xs font-black w-5 h-5 rounded-full flex items-center justify-center shadow-sm">2</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==========================================================================
+         الوضع الأول: واجهة المتجر التفاعلية (STOREFRONT & LIVE PRINT STUDIO)
+         ========================================================================== -->
+    <main id="store-view" class="block">
+
+        <!-- 1. القسم الافتتاحي الإبداعي (Creative Editorial Hero Section) -->
+        <section id="hero-section" class="relative overflow-hidden pt-8 pb-16 lg:pt-14 lg:pb-24 border-b border-moom-border">
+            <!-- شريطة ذهبية فيكتور منسابة في الخلفية -->
+            <svg class="absolute top-0 left-0 w-full h-full pointer-events-none opacity-25" viewBox="0 0 1440 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M-100 120 C 300 40, 450 450, 850 280 C 1150 150, 1300 480, 1600 350" stroke="#F5A623" stroke-width="6" stroke-dasharray="14 10"/>
+                <path d="M-100 520 C 280 620, 620 180, 1050 420 C 1280 550, 1400 220, 1600 260" stroke="#4D1227" stroke-width="2" stroke-opacity="0.3"/>
+            </svg>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+                    
+                    <!-- النص الافتتاحي بخط ثمانية (7 أعمدة) -->
+                    <div class="lg:col-span-7 space-y-6 text-right">
+                        <div class="inline-flex items-center gap-2 bg-moom-goldLight border border-moom-gold/50 text-moom-burgundy px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold shadow-sm">
+                            <span class="w-2 h-2 rounded-full bg-moom-gold"></span>
+                            <span>متجر الهدايا المطبوعة الأول بتجربة التخصيص الحي</span>
+                        </div>
+
+                        <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-black text-moom-burgundy leading-[1.22] tracking-tight">
+                            هدايا مطبوعة بشغف..
+                            <span class="relative inline-block text-moom-berry mt-1">
+                                تُحكى ولا تُنسى
+                                <!-- خط زخرفي مستوحى من شريطة اللوجو -->
+                                <svg class="absolute -bottom-3 right-0 w-full h-4 text-moom-gold" viewBox="0 0 260 18" fill="none">
+                                    <path d="M4 13 C75 3, 180 3, 256 13" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+                                </svg>
+                            </span>
+                        </h1>
+
+                        <p class="font-serifText text-lg sm:text-xl text-moom-dark/80 leading-relaxed max-w-2xl">
+                            في <strong class="text-moom-burgundy font-bold">مووم ستور</strong>، نحول الكلمات، التواريخ المميزة، والصور القريبة لقلبك إلى قطع فنية مطبوعة بأعلى جودة، ومُغلّفة بشريطتنا الذهبية الشهيرة لتصل كرسالة حب خالدة.
+                        </p>
+
+                        <!-- أزرار الدعوة لاتخاذ إجراء (CTAs) -->
+                        <div class="flex flex-wrap items-center gap-4 pt-2">
+                            <button onclick="scrollToStudio()" class="bg-moom-burgundy hover:bg-moom-berry text-white font-bold px-7 py-4 rounded-2xl shadow-elevated transition transform hover:-translate-y-1 flex items-center gap-3 text-base sm:text-lg group">
+                                <span class="bg-moom-gold text-moom-dark p-1.5 rounded-xl group-hover:rotate-12 transition">
+                                    <i data-lucide="Sparkles" class="w-5 h-5"></i>
+                                </span>
+                                <span>افتح استوديو الطباعة وصمّم هديتك</span>
+                            </button>
+
+                            <a href="#catalog-section" class="bg-white hover:bg-moom-sand text-moom-burgundy border-2 border-moom-burgundy/20 font-bold px-6 py-4 rounded-2xl transition flex items-center gap-2 text-base">
+                                <span>تصفح الكتالوج الجاهز</span>
+                                <i data-lucide="ArrowDownLeft" class="w-5 h-5"></i>
+                            </a>
+                        </div>
+
+                        <!-- إحصائيات الثقة وجودة الطباعة -->
+                        <div class="grid grid-cols-3 gap-4 pt-6 border-t border-moom-border/80 max-w-xl">
+                            <div>
+                                <div class="font-display text-2xl sm:text-3xl font-black text-moom-burgundy">+18,400</div>
+                                <div class="text-xs sm:text-sm text-moom-dark/70">هدية طُبعت بحب</div>
+                            </div>
+                            <div class="border-r border-moom-border pr-4">
+                                <div class="font-display text-2xl sm:text-3xl font-black text-moom-goldDark">100%</div>
+                                <div class="text-xs sm:text-sm text-moom-dark/70">ثبات ألوان وغسيل</div>
+                            </div>
+                            <div class="border-r border-moom-border pr-4">
+                                <div class="font-display text-2xl sm:text-3xl font-black text-moom-burgundy">4.9 ★</div>
+                                <div class="text-xs sm:text-sm text-moom-dark/70">تقييم تغليف الهدايا</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- العرض التفاعلي في الهيرو (5 أعمدة - بطاقة هدايا مووم المتحركة) -->
+                    <div class="lg:col-span-5 relative">
+                        <!-- إطار البطاقة التفاعلية -->
+                        <div class="relative bg-gradient-to-b from-white to-moom-sand p-6 sm:p-8 rounded-[2rem] border-2 border-moom-border shadow-elevated">
+                            
+                            <!-- شارة شريطة مووم العلوية -->
+                            <div class="absolute -top-5 right-8 bg-moom-gold text-moom-dark font-black text-xs px-4 py-2 rounded-full shadow-gold-glow flex items-center gap-1.5">
+                                <i data-lucide="Gift" class="w-4 h-4"></i>
+                                <span>معاينة حية من إنتاج مووم ستور</span>
+                            </div>
+
+                            <!-- مساحة عرض المنتج في الهيرو -->
+                            <div id="hero-showcase-stage" class="bg-moom-cream rounded-2xl p-6 border border-moom-border/70 flex flex-col items-center justify-center min-h-[300px] relative overflow-hidden">
+                                <!-- خلفية دائرية ناعمة -->
+                                <div class="w-56 h-56 rounded-full bg-moom-gold/15 absolute"></div>
+                                
+                                <!-- SVG المنتج المعروض في الهيرو -->
+                                <div id="hero-svg-container" class="relative z-10 animate-float">
+                                    <!-- يتم تحديثه ديناميكياً أو يعرض البوكس والمج الافتراضي -->
+                                </div>
+
+                                <!-- شريط وصف قطعة الهيرو -->
+                                <div class="relative z-10 mt-4 text-center">
+                                    <span id="hero-item-tag" class="text-xs font-bold uppercase tracking-wider text-moom-berry bg-moom-berry/10 px-3 py-0.5 rounded-full">الأكثر طلباً للإهداء</span>
+                                    <h3 id="hero-item-title" class="font-display text-2xl font-bold text-moom-burgundy mt-1.5">بوكس ومج «وصالكِ قهوتي»</h3>
+                                    <p id="hero-item-desc" class="text-xs text-moom-dark/70 mt-0.5">طباعة حرارية بارزة + تغليف شريطة مووم الذهبية</p>
+                                </div>
+                            </div>
+
+                            <!-- أزرار التبديل السريع بين الهدايا في الهيرو -->
+                            <div class="mt-5 flex items-center justify-between gap-2">
+                                <button onclick="setHeroShowcase(0)" id="hero-tab-0" class="flex-1 py-2 px-3 rounded-xl text-xs font-bold border transition bg-moom-burgundy text-white border-moom-burgundy">
+                                    ☕ مج مطبوع
+                                </button>
+                                <button onclick="setHeroShowcase(1)" id="hero-tab-1" class="flex-1 py-2 px-3 rounded-xl text-xs font-bold border transition bg-white text-moom-dark border-moom-border hover:border-moom-burgundy">
+                                    🧥 هودي شتوي
+                                </button>
+                                <button onclick="setHeroShowcase(2)" id="hero-tab-2" class="flex-1 py-2 px-3 rounded-xl text-xs font-bold border transition bg-white text-moom-dark border-moom-border hover:border-moom-burgundy">
+                                    🖼️ تابلوه خشبي
+                                </button>
+                                <button onclick="setHeroShowcase(3)" id="hero-tab-3" class="flex-1 py-2 px-3 rounded-xl text-xs font-bold border transition bg-white text-moom-dark border-moom-border hover:border-moom-burgundy">
+                                    🎁 بوكس ملكي
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- مستشار الهدايا الذكي (Quick Gift Finder UX Bar) -->
+                <div class="mt-12 bg-white p-5 sm:p-6 rounded-3xl border-2 border-moom-gold/50 shadow-soft relative">
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
+                        <div class="md:col-span-3 flex items-center gap-3">
+                            <div class="w-12 h-12 rounded-2xl bg-moom-burgundy text-moom-gold flex items-center justify-center flex-shrink-0 shadow-sm">
+                                <i data-lucide="Compass" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h2 class="font-display text-xl font-bold text-moom-burgundy">مستشار الهدايا الذكي</h2>
+                                <p class="text-xs text-moom-dark/70">محتار؟ نرشح لك الهدية والعبارة الأنسب</p>
+                            </div>
+                        </div>
+
+                        <div class="md:col-span-3">
+                            <label class="block text-xs font-bold text-moom-dark/70 mb-1">الهدية لمين؟</label>
+                            <select id="finder-recipient" class="w-full bg-moom-cream border border-moom-border rounded-xl px-3.5 py-2.5 text-sm font-bold text-moom-burgundy focus:outline-none focus:border-moom-gold">
+                                <option value="partner">شريك الحياة / خطوبة</option>
+                                <option value="friend">صديق مقرب (أنتيم)</option>
+                                <option value="family">الأم / الأب / العائلة</option>
+                                <option value="grad">تخرج أو ترقية عمل</option>
+                            </select>
+                        </div>
+
+                        <div class="md:col-span-3">
+                            <label class="block text-xs font-bold text-moom-dark/70 mb-1">أسلوب الطباعة المفضل</label>
+                            <select id="finder-style" class="w-full bg-moom-cream border border-moom-border rounded-xl px-3.5 py-2.5 text-sm font-bold text-moom-burgundy focus:outline-none focus:border-moom-gold">
+                                <option value="poetic">أدبي وشاعري (بخط ثمانية سيرف)</option>
+                                <option value="modern">عصري مبهج (بخط ثمانية سانس)</option>
+                                <option value="illustrated">رسمة خطية + تاريخ مميز</option>
+                            </select>
+                        </div>
+
+                        <div class="md:col-span-3 pt-2 md:pt-5">
+                            <button onclick="applySmartGiftFinder()" class="w-full bg-moom-gold hover:bg-moom-goldDark text-moom-dark font-black py-2.5 px-4 rounded-xl transition shadow-sm flex items-center justify-center gap-2 text-sm">
+                                <i data-lucide="Wand" class="w-4 h-4"></i>
+                                <span>ابتكر الهدية الآن</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             2. استوديو مووم للطباعة التفاعلية (LIVE INTERACTIVE PRINT STUDIO)
+             ========================================================================== -->
+        <section id="print-studio" class="py-16 lg:py-24 bg-moom-sand/60 border-b border-moom-border relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <!-- عنوان القسم -->
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <span class="text-xs font-black uppercase tracking-widest text-moom-burgundy bg-moom-gold/30 px-4 py-1 rounded-full border border-moom-gold">الميزة التفاعلية الأهم في UX المتجر</span>
+                    <h2 class="font-display text-3xl sm:text-5xl font-black text-moom-burgundy mt-3">
+                        استوديو «مووم» للطباعة الحية
+                    </h2>
+                    <p class="font-serifText text-base sm:text-lg text-moom-dark/80 mt-2">
+                        اختر القطعة، اكتب عبارتك المفضلة، بدّل بين أوزان <strong>خط ثمانية</strong>، وشاهد هديتك تُطبع وتُغلّف بشريطتنا الذهبية أمام عينيك قبل الطلب.
+                    </p>
+                </div>
+
+                <!-- شبكة الاستوديو: يمين (أدوات التخصيص) | يسار (المعاينة الحية والبطاقة) -->
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                    
+                    <!-- اللوحة اليمنى: أدوات التخصيص (7 أعمدة) -->
+                    <div class="lg:col-span-7 bg-white rounded-3xl p-6 sm:p-8 border border-moom-border shadow-soft space-y-7">
+                        
+                        <!-- الخطوة 1: اختيار المنتج للطباعة -->
+                        <div>
+                            <div class="flex items-center justify-between mb-3">
+                                <label class="text-sm font-black text-moom-burgundy flex items-center gap-2">
+                                    <span class="w-6 h-6 rounded-full bg-moom-burgundy text-moom-gold text-xs flex items-center justify-center">1</span>
+                                    <span>اختر المنتج المراد الطباعة عليه:</span>
+                                </label>
+                                <span id="studio-base-price-label" class="text-xs font-bold text-moom-berry bg-moom-goldLight px-3 py-1 rounded-full">السعر الأساسي: 280 ج.م</span>
+                            </div>
+
+                            <div class="grid grid-cols-2 sm:grid-cols-5 gap-2.5">
+                                <button onclick="selectStudioProduct('mug')" id="prod-btn-mug" class="studio-prod-btn p-3 rounded-2xl border-2 border-moom-burgundy bg-moom-burgundy text-white text-center transition flex flex-col items-center gap-1.5">
+                                    <i data-lucide="Coffee" class="w-5 h-5 text-moom-gold"></i>
+                                    <span class="text-xs font-bold">مج سيراميك</span>
+                                </button>
+                                <button onclick="selectStudioProduct('hoodie')" id="prod-btn-hoodie" class="studio-prod-btn p-3 rounded-2xl border-2 border-moom-border bg-moom-cream text-moom-dark hover:border-moom-burgundy text-center transition flex flex-col items-center gap-1.5">
+                                    <i data-lucide="Shirt" class="w-5 h-5 text-moom-burgundy"></i>
+                                    <span class="text-xs font-bold">هودي مطبوع</span>
+                                </button>
+                                <button onclick="selectStudioProduct('frame')" id="prod-btn-frame" class="studio-prod-btn p-3 rounded-2xl border-2 border-moom-border bg-moom-cream text-moom-dark hover:border-moom-burgundy text-center transition flex flex-col items-center gap-1.5">
+                                    <i data-lucide="Frame" class="w-5 h-5 text-moom-burgundy"></i>
+                                    <span class="text-xs font-bold">تابلوه خشبي</span>
+                                </button>
+                                <button onclick="selectStudioProduct('tote')" id="prod-btn-tote" class="studio-prod-btn p-3 rounded-2xl border-2 border-moom-border bg-moom-cream text-moom-dark hover:border-moom-burgundy text-center transition flex flex-col items-center gap-1.5">
+                                    <i data-lucide="ShoppingBag" class="w-5 h-5 text-moom-burgundy"></i>
+                                    <span class="text-xs font-bold">توت باج قماش</span>
+                                </button>
+                                <button onclick="selectStudioProduct('box')" id="prod-btn-box" class="studio-prod-btn col-span-2 sm:col-span-1 p-3 rounded-2xl border-2 border-moom-border bg-moom-cream text-moom-dark hover:border-moom-burgundy text-center transition flex flex-col items-center gap-1.5">
+                                    <i data-lucide="PackageCheck" class="w-5 h-5 text-moom-burgundy"></i>
+                                    <span class="text-xs font-bold">بوكس ملكي</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- الخطوة 2: العبارة المطبوعة + اقتراحات ثمانية الإبداعية -->
+                        <div>
+                            <div class="flex items-center justify-between mb-2">
+                                <label for="custom-text-input" class="text-sm font-black text-moom-burgundy flex items-center gap-2">
+                                    <span class="w-6 h-6 rounded-full bg-moom-burgundy text-moom-gold text-xs flex items-center justify-center">2</span>
+                                    <span>اكتب العبارة أو الاسم للطباعة:</span>
+                                </label>
+                                <span class="text-xs text-moom-dark/60">يدعم العربية والإنجليزية</span>
+                            </div>
+
+                            <div class="relative">
+                                <input type="text" id="custom-text-input" value="وصالكِ قهوتي وصباحُ خيري" oninput="updateStudioPreview()" maxlength="48"
+                                    class="w-full bg-moom-cream border-2 border-moom-border focus:border-moom-burgundy rounded-2xl px-4 py-3.5 text-base font-bold text-moom-burgundy focus:outline-none transition"
+                                    placeholder="اكتب عبارتك المميزة هنا...">
+                            </div>
+
+                            <!-- السطر الفرعي / التاريخ المميز -->
+                            <div class="mt-2.5 flex items-center gap-2">
+                                <input type="text" id="custom-subtext-input" value="٢ نوفمبر ٢٠٢٦ • مووم ستور" oninput="updateStudioPreview()" maxlength="35"
+                                    class="w-full bg-moom-cream/70 border border-moom-border focus:border-moom-burgundy rounded-xl px-3.5 py-2 text-xs text-moom-dark focus:outline-none transition"
+                                    placeholder="سطر إضافي اختياري (تاريخ مميز، اسم، أو ذكرى)...">
+                            </div>
+
+                            <!-- شرائح عبارات جاهزة للإلهام -->
+                            <div class="mt-3">
+                                <span class="text-xs font-bold text-moom-dark/70 block mb-1.5">عبارات مقترحة بلمسة خط ثمانية:</span>
+                                <div class="flex flex-wrap gap-1.5">
+                                    <button onclick="setQuote('وصالكِ قهوتي وصباحُ خيري', '٢ نوفمبر ٢٠٢٦')" class="text-xs bg-moom-sand hover:bg-moom-goldLight text-moom-burgundy px-3 py-1.5 rounded-full border border-moom-border transition">«وصالكِ قهوتي وصباحُ خيري»</button>
+                                    <button onclick="setQuote('لا تبرحُ البالَ إن غبتَ وإن حضروا', 'ذكرى لا تُنسى')" class="text-xs bg-moom-sand hover:bg-moom-goldLight text-moom-burgundy px-3 py-1.5 rounded-full border border-moom-border transition">«لا تبرحُ البالَ إن غبتَ»</button>
+                                    <button onclick="setQuote('صُنع بشغف لمن يُشبه القمر', 'MOOM SPECIAL GIFT')" class="text-xs bg-moom-sand hover:bg-moom-goldLight text-moom-burgundy px-3 py-1.5 rounded-full border border-moom-border transition">«صُنع بشغف لمن يُشبه القمر»</button>
+                                    <button onclick="setQuote('صديقُ العمرِ ومأمنُ الروح', 'أفضل الأصدقاء')" class="text-xs bg-moom-sand hover:bg-moom-goldLight text-moom-burgundy px-3 py-1.5 rounded-full border border-moom-border transition">«صديقُ العمرِ ومأمنُ الروح»</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- الخطوة 3: اختيار عائلة خط ثمانية (Thmanyah Typeface Selector) -->
+                        <div>
+                            <label class="text-sm font-black text-moom-burgundy flex items-center gap-2 mb-3">
+                                <span class="w-6 h-6 rounded-full bg-moom-burgundy text-moom-gold text-xs flex items-center justify-center">3</span>
+                                <span>اختر نمط «خط ثمانية» للطباعة:</span>
+                            </label>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                                <button onclick="selectStudioFont('display')" id="font-btn-display" class="p-3.5 rounded-2xl border-2 border-moom-burgundy bg-moom-goldLight/60 text-right transition">
+                                    <div class="text-xs text-moom-berry font-bold mb-1">ثـمانية سـيرف دسبلاي</div>
+                                    <div class="font-display text-xl font-black text-moom-burgundy">فخامة كلاسيكية</div>
+                                </button>
+                                <button onclick="selectStudioFont('sans')" id="font-btn-sans" class="p-3.5 rounded-2xl border-2 border-moom-border bg-moom-cream hover:border-moom-burgundy text-right transition">
+                                    <div class="text-xs text-moom-dark/60 font-bold mb-1">ثـمانية سـانس</div>
+                                    <div class="font-sans text-lg font-bold text-moom-burgundy">عصري، واضح وجريء</div>
+                                </button>
+                                <button onclick="selectStudioFont('serifText')" id="font-btn-serifText" class="p-3.5 rounded-2xl border-2 border-moom-border bg-moom-cream hover:border-moom-burgundy text-right transition">
+                                    <div class="text-xs text-moom-dark/60 font-bold mb-1">ثـمانية سـيرف نـصي</div>
+                                    <div class="font-serifText text-lg font-bold text-moom-burgundy">أدبي ودافئ للقراءة</div>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- الخطوة 4: لون القطعة + الرسمة المطبوعة أو رفع صورة -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-2 border-t border-moom-border/70">
+                            <!-- ألوان المنتج -->
+                            <div>
+                                <label class="text-sm font-black text-moom-burgundy flex items-center gap-2 mb-3">
+                                    <span class="w-6 h-6 rounded-full bg-moom-burgundy text-moom-gold text-xs flex items-center justify-center">4</span>
+                                    <span>لون القطعة والطباعة:</span>
+                                </label>
+                                <div class="flex items-center gap-3">
+                                    <button onclick="selectStudioColor('#4D1227', '#F5A623', 'عنابي مووم بذهبي')" id="color-swatch-0" class="w-11 h-11 rounded-2xl bg-[#4D1227] border-4 border-moom-gold shadow-md flex items-center justify-center transition transform hover:scale-105" title="عنابي ملكي بطباعة ذهبية">
+                                        <span class="w-3.5 h-3.5 rounded-full bg-[#F5A623]"></span>
+                                    </button>
+                                    <button onclick="selectStudioColor('#FCF9F5', '#4D1227', 'كريمي ورقي بعنابي')" id="color-swatch-1" class="w-11 h-11 rounded-2xl bg-[#FCF9F5] border-2 border-moom-border shadow-sm flex items-center justify-center transition transform hover:scale-105" title="كريمي بطباعة عنابي">
+                                        <span class="w-3.5 h-3.5 rounded-full bg-[#4D1227]"></span>
+                                    </button>
+                                    <button onclick="selectStudioColor('#1E1B18', '#F5A623', 'أسود فاحم بذهبي')" id="color-swatch-2" class="w-11 h-11 rounded-2xl bg-[#1E1B18] border-2 border-moom-border shadow-sm flex items-center justify-center transition transform hover:scale-105" title="أسود بطباعة ذهبية">
+                                        <span class="w-3.5 h-3.5 rounded-full bg-[#F5A623]"></span>
+                                    </button>
+                                    <button onclick="selectStudioColor('#F3ECE3', '#731C3B', 'رملي دافئ بتوتي')" id="color-swatch-3" class="w-11 h-11 rounded-2xl bg-[#F3ECE3] border-2 border-moom-border shadow-sm flex items-center justify-center transition transform hover:scale-105" title="رملي بطباعة توتي">
+                                        <span class="w-3.5 h-3.5 rounded-full bg-[#731C3B]"></span>
+                                    </button>
+                                </div>
+                                <div id="selected-color-name" class="text-xs text-moom-dark/70 mt-2 font-medium">اللون المختار: عنابي مووم بذهبي</div>
+                            </div>
+
+                            <!-- الرمز أو رفع صورة مخصصة -->
+                            <div>
+                                <label class="text-sm font-black text-moom-burgundy flex items-center gap-2 mb-3">
+                                    <span class="w-6 h-6 rounded-full bg-moom-burgundy text-moom-gold text-xs flex items-center justify-center">5</span>
+                                    <span>رسمة خطية أو صورة خاصة:</span>
+                                </label>
+                                <div class="flex flex-wrap items-center gap-2">
+                                    <button onclick="selectStudioGraphic('ribbon')" id="graphic-btn-ribbon" class="px-3 py-2 rounded-xl border-2 border-moom-burgundy bg-moom-goldLight text-xs font-bold text-moom-burgundy">🎀 شريطة مووم</button>
+                                    <button onclick="selectStudioGraphic('heart')" id="graphic-btn-heart" class="px-3 py-2 rounded-xl border border-moom-border bg-moom-cream text-xs font-bold text-moom-dark">💛 قلب خطي</button>
+                                    <button onclick="selectStudioGraphic('coffee')" id="graphic-btn-coffee" class="px-3 py-2 rounded-xl border border-moom-border bg-moom-cream text-xs font-bold text-moom-dark">☕ قهوة</button>
+                                    <button onclick="selectStudioGraphic('stars')" id="graphic-btn-stars" class="px-3 py-2 rounded-xl border border-moom-border bg-moom-cream text-xs font-bold text-moom-dark">✨ نجوم</button>
+                                    <label class="px-3 py-2 rounded-xl border border-dashed border-moom-burgundy bg-white hover:bg-moom-goldLight text-xs font-bold text-moom-burgundy cursor-pointer flex items-center gap-1">
+                                        <i data-lucide="Upload" class="w-3.5 h-3.5"></i>
+                                        <span>ارفع صورتك</span>
+                                        <input type="file" accept="image/*" class="hidden" onchange="handleCustomImageUpload(event)">
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- الخطوة 6: تغليف شريطة مووم الذهبية وكارت الإهداء -->
+                        <div class="bg-moom-goldLight/70 rounded-2xl p-4 border border-moom-gold/60">
+                            <div class="flex items-center justify-between">
+                                <label class="flex items-center gap-3 cursor-pointer">
+                                    <input type="checkbox" id="gift-wrap-toggle" checked onchange="updateStudioPreview()" class="w-5 h-5 accent-moom-burgundy rounded cursor-pointer">
+                                    <div>
+                                        <span class="font-bold text-sm text-moom-burgundy flex items-center gap-1.5">
+                                            <i data-lucide="Sparkles" class="w-4 h-4 text-moom-goldDark"></i>
+                                            إضافة تغليف «شريطة مووم الذهبية» + كارت إهداء مطبوع
+                                        </span>
+                                        <span class="block text-xs text-moom-dark/70">يُغلف في بوكس مووم المقوى مع شريطة ساتان ذهبية وبطاقة مختومة (+45 ج.م)</span>
+                                    </div>
+                                </label>
+                            </div>
+
+                            <div id="gift-card-inputs" class="mt-3 pt-3 border-t border-moom-gold/30 grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                <input type="text" id="gift-to-input" value="إلى: سارة" oninput="updateStudioPreview()"
+                                    class="bg-white border border-moom-border rounded-xl px-3 py-2 text-xs font-bold text-moom-burgundy focus:outline-none"
+                                    placeholder="اسم المُهدى إليه (مثال: إلى سارة)">
+                                <input type="text" id="gift-from-input" value="من: أحمد • بكل الحب" oninput="updateStudioPreview()"
+                                    class="bg-white border border-moom-border rounded-xl px-3 py-2 text-xs font-bold text-moom-burgundy focus:outline-none"
+                                    placeholder="اسم المُرسل (مثال: من أحمد)">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- اللوحة اليسرى: المعاينة الحية للطباعة (Live Print Mockup Stage - 5 أعمدة) -->
+                    <div class="lg:col-span-5 sticky top-32">
+                        <div class="bg-moom-burgundy text-white rounded-3xl p-6 sm:p-8 shadow-elevated relative overflow-hidden">
+                            
+                            <!-- زخرفة خلفية خفيفة -->
+                            <div class="absolute -top-24 -left-24 w-64 h-64 rounded-full bg-moom-gold/10 blur-2xl pointer-events-none"></div>
+
+                            <!-- شريط حالة المعاينة -->
+                            <div class="flex items-center justify-between mb-4 relative z-10">
+                                <div class="flex items-center gap-2">
+                                    <span class="w-2.5 h-2.5 rounded-full bg-moom-gold animate-pulse"></span>
+                                    <span class="text-xs font-bold text-moom-goldLight tracking-wide">معاينة الطباعة الحية (300 DPI)</span>
+                                </div>
+                                <span id="preview-font-badge" class="text-[11px] bg-white/10 px-2.5 py-1 rounded-full text-moom-gold">خط ثمانية سيرف دسبلاي</span>
+                            </div>
+
+                            <!-- مسرح المنتج التفاعلي (SVG Mockup Canvas) -->
+                            <div class="bg-moom-cream text-moom-dark rounded-2xl p-6 min-h-[340px] flex flex-col items-center justify-center relative shadow-inner border-2 border-moom-gold/40">
+                                
+                                <!-- شارة تغليف شريطة مووم الذهبية أعلى المعاينة -->
+                                <div id="mockup-ribbon-badge" class="absolute top-3 right-3 bg-moom-gold/20 border border-moom-gold text-moom-burgundy text-[11px] font-bold px-2.5 py-1 rounded-full flex items-center gap-1">
+                                    <span>🎀</span>
+                                    <span>شامل تغليف الشريطة الذهبية</span>
+                                </div>
+
+                                <!-- الحاوية الديناميكية للـ SVG المطبوع -->
+                                <div id="studio-svg-stage" class="w-full max-w-[260px] h-[250px] flex items-center justify-center my-2">
+                                    <!-- يتم حقن الـ SVG التفاعلي هنا عبر الجافاسكربت -->
+                                </div>
+
+                                <!-- بطاقة الإهداء المصغرة الحية (تظهر عند تفعيل التغليف) -->
+                                <div id="live-gift-card-preview" class="w-full mt-3 bg-moom-sand/90 border border-moom-gold/60 rounded-xl p-3 flex items-center justify-between text-xs shadow-sm">
+                                    <div class="flex items-center gap-2.5">
+                                        <div class="w-8 h-8 rounded-full wax-seal flex items-center justify-center text-moom-gold font-brandEn font-black text-xs flex-shrink-0">M</div>
+                                        <div>
+                                            <div id="preview-card-to" class="font-display font-bold text-moom-burgundy text-sm">إلى: سارة</div>
+                                            <div id="preview-card-from" class="text-moom-dark/70 text-[11px]">من: أحمد • بكل الحب</div>
+                                        </div>
+                                    </div>
+                                    <span class="text-[10px] font-bold text-moom-goldDark bg-white px-2 py-0.5 rounded-md border border-moom-border">كارت مطبوع</span>
+                                </div>
+                            </div>
+
+                            <!-- ملخص السعر وزر الإضافة للسلة -->
+                            <div class="mt-6 flex flex-col sm:flex-row items-center justify-between gap-4 relative z-10">
+                                <div>
+                                    <span class="text-xs text-moom-goldLight/80 block">الإجمالي بعد التخصيص والطباعة:</span>
+                                    <div class="flex items-baseline gap-1.5">
+                                        <span id="studio-total-price" class="font-display text-3xl font-black text-moom-gold">325</span>
+                                        <span class="text-sm font-bold text-white">ج.م</span>
+                                    </div>
+                                </div>
+
+                                <button onclick="addCustomDesignToCart()" class="w-full sm:w-auto bg-moom-gold hover:bg-moom-goldDark text-moom-dark font-black px-7 py-4 rounded-2xl shadow-gold-glow transition transform active:scale-95 flex items-center justify-center gap-2 text-base">
+                                    <i data-lucide="ShoppingBag" class="w-5 h-5"></i>
+                                    <span>اعتمد التصميم وأضف للسلة</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             3. كتالوج الهدايا المطبوعة مع ميزة (معاينة قبل / بعد الطباعة)
+             ========================================================================== -->
+        <section id="catalog-section" class="py-16 lg:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- رأس القسم وأزرار الفلترة + مفتاح قبل/بعد الطباعة -->
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+                <div>
+                    <span class="text-xs font-bold text-moom-berry uppercase tracking-wider">تشكيلة مووم المختارة</span>
+                    <h2 class="font-display text-3xl sm:text-4xl font-black text-moom-burgundy mt-1">
+                        كتالوج الهدايا المطبوعة
+                    </h2>
+                </div>
+
+                <!-- مفتاح تفاعلي لمعاينة المنتجات (مطبوعة بمووم vs خام قبل الطباعة) -->
+                <div class="flex flex-wrap items-center gap-3">
+                    <div class="bg-moom-sand p-1.5 rounded-2xl border border-moom-border flex items-center gap-1">
+                        <button onclick="toggleCatalogPrintView(true)" id="view-printed-btn" class="px-3.5 py-1.5 rounded-xl text-xs font-bold bg-moom-burgundy text-white shadow-sm transition">
+                            ✨ بعد طباعة مووم
+                        </button>
+                        <button onclick="toggleCatalogPrintView(false)" id="view-blank-btn" class="px-3.5 py-1.5 rounded-xl text-xs font-bold text-moom-dark/70 hover:text-moom-burgundy transition">
+                            📦 القطعة خام (قبل الطباعة)
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- تصنيفات الكتالوج -->
+            <div class="flex items-center gap-2 overflow-x-auto pb-4 mb-6 no-scrollbar">
+                <button onclick="filterCatalog('all')" data-cat="all" class="cat-filter-btn px-5 py-2.5 rounded-full text-sm font-bold bg-moom-burgundy text-white shadow-sm whitespace-nowrap transition">الكل (6 هدايا)</button>
+                <button onclick="filterCatalog('mugs')" data-cat="mugs" class="cat-filter-btn px-5 py-2.5 rounded-full text-sm font-bold bg-moom-sand text-moom-dark hover:bg-moom-goldLight whitespace-nowrap transition">☕ مجات وأكواب</button>
+                <button onclick="filterCatalog('apparel')" data-cat="apparel" class="cat-filter-btn px-5 py-2.5 rounded-full text-sm font-bold bg-moom-sand text-moom-dark hover:bg-moom-goldLight whitespace-nowrap transition">🧥 هوديز وتوت باج</button>
+                <button onclick="filterCatalog('decor')" data-cat="decor" class="cat-filter-btn px-5 py-2.5 rounded-full text-sm font-bold bg-moom-sand text-moom-dark hover:bg-moom-goldLight whitespace-nowrap transition">🖼️ تابلوهات وخشبيات</button>
+                <button onclick="filterCatalog('boxes')" data-cat="boxes" class="cat-filter-btn px-5 py-2.5 rounded-full text-sm font-bold bg-moom-sand text-moom-dark hover:bg-moom-goldLight whitespace-nowrap transition">🎁 بوكسات الهدايا</button>
+            </div>
+
+            <!-- شبكة المنتجات (تُبنى ديناميكياً بالجافاسكربت) -->
+            <div id="catalog-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
+                <!-- يتم ملؤها عبر renderCatalog() -->
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             4. قسم تجربة التغليف (تجربة فتح الصندوق - Unboxing Experience)
+             ========================================================================== -->
+        <section id="packaging-section" class="py-16 bg-moom-burgundy text-moom-cream relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                    <div class="lg:col-span-6 space-y-5">
+                        <span class="bg-moom-gold/20 text-moom-gold border border-moom-gold/40 text-xs font-bold px-3.5 py-1 rounded-full">سر الشريطة الذهبية في شعارنا</span>
+                        <h2 class="font-display text-3xl sm:text-5xl font-black text-white leading-tight">
+                            لأن لحظة فتح الهدية.. لا تقل جمالاً عن الهدية نفسها!
+                        </h2>
+                        <p class="font-serifText text-base sm:text-lg text-moom-cream/85 leading-relaxed">
+                            استلهمنا تجربة التغليف من الشريطة الذهبية التي تتوّج حرف <strong>M</strong> في شعار <strong>مووم ستور</strong>. كل طلب يخرج من مطبعتنا يمر بـ 3 مراحل من العناية الفائقة:
+                        </p>
+
+                        <div class="space-y-4 pt-2">
+                            <div class="flex items-start gap-3.5 bg-white/5 p-4 rounded-2xl border border-white/10">
+                                <div class="w-10 h-10 rounded-xl bg-moom-gold text-moom-dark font-black flex items-center justify-center flex-shrink-0">١</div>
+                                <div>
+                                    <h4 class="font-bold text-moom-gold text-base">طباعة حرارية وليزر فائقة الدقة</h4>
+                                    <p class="text-xs sm:text-sm text-moom-cream/75 mt-0.5">نستخدم أحباراً أصلية تدوم مع الغسيل والاستخدام اليومي دون بهتان.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3.5 bg-white/5 p-4 rounded-2xl border border-white/10">
+                                <div class="w-10 h-10 rounded-xl bg-moom-gold text-moom-dark font-black flex items-center justify-center flex-shrink-0">٢</div>
+                                <div>
+                                    <h4 class="font-bold text-moom-gold text-base">ورق زبدة معطّر وشريطة ساتان ذهبية</h4>
+                                    <p class="text-xs sm:text-sm text-moom-cream/75 mt-0.5">تُلف القطعة بورق مووم المطبوع وتُربط بشريطة الهدية الذهبية المميزة.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3.5 bg-white/5 p-4 rounded-2xl border border-white/10">
+                                <div class="w-10 h-10 rounded-xl bg-moom-gold text-moom-dark font-black flex items-center justify-center flex-shrink-0">٣</div>
+                                <div>
+                                    <h4 class="font-bold text-moom-gold text-base">كارت إهداء مطبوع بـ «خط ثمانية»</h4>
+                                    <p class="text-xs sm:text-sm text-moom-cream/75 mt-0.5">رسالتك الخاصة تُطبع على ورق قطني فاخر مع ختم مووم العنابي.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- معاينة البوكس المفتوح التفاعلية -->
+                    <div class="lg:col-span-6">
+                        <div class="bg-moom-cream text-moom-dark p-6 sm:p-8 rounded-3xl border-4 border-moom-gold shadow-2xl relative">
+                            <div class="text-center mb-5">
+                                <span class="text-xs font-bold text-moom-berry">محاكاة تفاعلية لتجربة الإهداء</span>
+                                <h3 class="font-display text-2xl font-black text-moom-burgundy">افتح بوكس مووم الملكي 🎁</h3>
+                            </div>
+
+                            <div id="unboxing-stage" class="bg-moom-sand rounded-2xl p-8 flex flex-col items-center justify-center min-h-[260px] border border-moom-border relative transition-all">
+                                <div id="unboxing-graphic" class="transition-all duration-500 transform">
+                                    <!-- يتم التبديل بين الصندوق المغلق بشريطة والصندوق المفتوح -->
+                                </div>
+                                <p id="unboxing-status-text" class="font-serifText text-sm font-bold text-moom-burgundy mt-4 text-center">
+                                    بوكس عنابي فاخر معقود بشريطة مووم الذهبية ومختوم بالشمع
+                                </p>
+                            </div>
+
+                            <div class="mt-5 flex justify-center">
+                                <button onclick="toggleUnboxSimulation()" id="unbox-btn" class="bg-moom-gold hover:bg-moom-goldDark text-moom-dark font-black px-6 py-3 rounded-xl shadow-md transition flex items-center gap-2 text-sm">
+                                    <i data-lucide="Sparkles" class="w-4 h-4"></i>
+                                    <span>اسحب الشريطة الذهبية لفتح البوكس!</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ==========================================================================
+         الوضع الثاني: نظام التصميم والهوية البصرية (UI/UX DESIGN SYSTEM & THMANYAH FONT LAB)
+         ========================================================================== -->
+    <section id="design-system-view" class="hidden py-12 lg:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        
+        <!-- مقدمة نظام التصميم -->
+        <div class="bg-moom-burgundy text-white rounded-3xl p-8 sm:p-10 shadow-elevated relative overflow-hidden">
+            <div class="max-w-3xl space-y-4 relative z-10">
+                <div class="inline-flex items-center gap-2 bg-moom-gold text-moom-dark text-xs font-black px-3.5 py-1 rounded-full">
+                    <span>UI/UX CASE STUDY & DESIGN SYSTEM</span>
+                </div>
+                <h1 class="font-display text-3xl sm:text-5xl font-black leading-tight">
+                    دليل الهوية البصرية ونظام تصميم «مووم ستور»
+                </h1>
+                <p class="font-serifText text-base sm:text-lg text-moom-cream/85">
+                    تم بناء هذا النظام البصري وتجربة المستخدم (UI/UX) خصيصاً ليتكامل مع شعار <strong>MOOM STORE</strong> المرفق ومع عائلة <strong>خط ثمانية (`Thmanyah Typeface`)</strong> بأوزانها الثلاثة: `Serif Display` و `Serif Text` و `Sans`.
+                </p>
+            </div>
+        </div>
+
+        <!-- 1. تحليل الشعار ولوحة الألوان (Color Palette & Brand Tokens) -->
+        <div class="bg-white rounded-3xl p-6 sm:p-8 border border-moom-border shadow-soft">
+            <h2 class="font-display text-2xl sm:text-3xl font-black text-moom-burgundy mb-2">١. لوحة الألوان المستخلصة من الشعار (Color Tokens)</h2>
+            <p class="text-sm text-moom-dark/70 mb-6">انقر على أي لون لنسخ كود الـ HEX الخاص به مباشرة:</p>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+                <div onclick="copyHex('#4D1227')" class="cursor-pointer group rounded-2xl overflow-hidden border border-moom-border shadow-sm hover:shadow-md transition">
+                    <div class="h-24 bg-[#4D1227] flex items-end p-3">
+                        <span class="text-[11px] font-mono text-white/90 bg-black/30 px-2 py-0.5 rounded">#4D1227</span>
+                    </div>
+                    <div class="p-3 bg-white">
+                        <div class="font-bold text-sm text-moom-dark">عنابي مووم الأساسي</div>
+                        <div class="text-xs text-moom-dark/60">Primary Brand</div>
+                    </div>
+                </div>
+
+                <div onclick="copyHex('#F5A623')" class="cursor-pointer group rounded-2xl overflow-hidden border border-moom-border shadow-sm hover:shadow-md transition">
+                    <div class="h-24 bg-[#F5A623] flex items-end p-3">
+                        <span class="text-[11px] font-mono text-moom-dark bg-white/60 px-2 py-0.5 rounded font-bold">#F5A623</span>
+                    </div>
+                    <div class="p-3 bg-white">
+                        <div class="font-bold text-sm text-moom-dark">ذهبي شريطة الهدية</div>
+                        <div class="text-xs text-moom-dark/60">Ribbon Accent</div>
+                    </div>
+                </div>
+
+                <div onclick="copyHex('#731C3B')" class="cursor-pointer group rounded-2xl overflow-hidden border border-moom-border shadow-sm hover:shadow-md transition">
+                    <div class="h-24 bg-[#731C3B] flex items-end p-3">
+                        <span class="text-[11px] font-mono text-white/90 bg-black/30 px-2 py-0.5 rounded">#731C3B</span>
+                    </div>
+                    <div class="p-3 bg-white">
+                        <div class="font-bold text-sm text-moom-dark">توتي تفاعلي</div>
+                        <div class="text-xs text-moom-dark/60">Hover / Secondary</div>
+                    </div>
+                </div>
+
+                <div onclick="copyHex('#FCF9F5')" class="cursor-pointer group rounded-2xl overflow-hidden border border-moom-border shadow-sm hover:shadow-md transition">
+                    <div class="h-24 bg-[#FCF9F5] border-b border-moom-border flex items-end p-3">
+                        <span class="text-[11px] font-mono text-moom-dark bg-moom-sand px-2 py-0.5 rounded">#FCF9F5</span>
+                    </div>
+                    <div class="p-3 bg-white">
+                        <div class="font-bold text-sm text-moom-dark">ورق كريمي دافئ</div>
+                        <div class="text-xs text-moom-dark/60">Main Background</div>
+                    </div>
+                </div>
+
+                <div onclick="copyHex('#F3ECE3')" class="cursor-pointer group rounded-2xl overflow-hidden border border-moom-border shadow-sm hover:shadow-md transition">
+                    <div class="h-24 bg-[#F3ECE3] border-b border-moom-border flex items-end p-3">
+                        <span class="text-[11px] font-mono text-moom-dark bg-white px-2 py-0.5 rounded">#F3ECE3</span>
+                    </div>
+                    <div class="p-3 bg-white">
+                        <div class="font-bold text-sm text-moom-dark">رملي مطبوع</div>
+                        <div class="text-xs text-moom-dark/60">Cards & Surfaces</div>
+                    </div>
+                </div>
+
+                <div onclick="copyHex('#230912')" class="cursor-pointer group rounded-2xl overflow-hidden border border-moom-border shadow-sm hover:shadow-md transition">
+                    <div class="h-24 bg-[#230912] flex items-end p-3">
+                        <span class="text-[11px] font-mono text-white/90 bg-white/20 px-2 py-0.5 rounded">#230912</span>
+                    </div>
+                    <div class="p-3 bg-white">
+                        <div class="font-bold text-sm text-moom-dark">حبر داكن للنصوص</div>
+                        <div class="text-xs text-moom-dark/60">Typography Ink</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. مختبر خط ثمانية التفاعلي (Thmanyah Typeface Interactive Lab) -->
+        <div class="bg-white rounded-3xl p-6 sm:p-8 border border-moom-border shadow-soft space-y-6">
+            <div class="flex flex-wrap items-center justify-between gap-4 border-b border-moom-border pb-4">
+                <div>
+                    <h2 class="font-display text-2xl sm:text-3xl font-black text-moom-burgundy">٢. نظام الخطوط العربي (عائلة خط ثمانية)</h2>
+                    <p class="text-sm text-moom-dark/70">تم ربط العائلات الثلاث المرفقة (`thmanyahserifdisplay`، `thmanyahseriftext`، `thmanyahsans`) لتوزيع هرمي متقن.</p>
+                </div>
+                <button onclick="openFontLoaderModal()" class="bg-moom-gold hover:bg-moom-goldDark text-moom-dark font-black text-xs px-4 py-2.5 rounded-xl transition flex items-center gap-2 shadow-sm">
+                    <i data-lucide="FolderUp" class="w-4 h-4"></i>
+                    <span>رفع ملفات .woff2 / .otf من جهازك للمعاينة الحية</span>
+                </button>
+            </div>
+
+            <!-- البطاقات الثلاث لعائلات خط ثمانية -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-moom-cream p-5 rounded-2xl border border-moom-border">
+                    <span class="text-xs font-mono bg-moom-burgundy text-moom-gold px-2.5 py-0.5 rounded-md">thmanyahserifdisplay</span>
+                    <h3 class="font-display text-3xl font-black text-moom-burgundy mt-3">خط ثمانية سيرف دسبلاي</h3>
+                    <p class="text-xs text-moom-dark/70 mt-1">مخصص للعناوين الرئيسية والافتتاحية والعبارات المطبوعة الفخمة على التابلوهات والمجات.</p>
+                    <div class="mt-4 pt-3 border-t border-moom-border/70 space-y-1 font-display text-moom-dark">
+                        <div class="font-light text-lg">وزن خفيف (Light 300) - مووم ستور</div>
+                        <div class="font-normal text-lg">وزن عادي (Regular 400) - مووم ستور</div>
+                        <div class="font-medium text-lg">وزن متوسط (Medium 500) - مووم ستور</div>
+                        <div class="font-bold text-lg">وزن عريض (Bold 700) - مووم ستور</div>
+                        <div class="font-black text-lg text-moom-burgundy">وزن أسود (Black 900) - مووم ستور</div>
+                    </div>
+                </div>
+
+                <div class="bg-moom-cream p-5 rounded-2xl border border-moom-border">
+                    <span class="text-xs font-mono bg-moom-berry text-white px-2.5 py-0.5 rounded-md">thmanyahsans</span>
+                    <h3 class="font-sans text-2xl font-black text-moom-burgundy mt-3">خط ثمانية سانس (Sans)</h3>
+                    <p class="text-xs text-moom-dark/70 mt-1">مخصص لواجهة المستخدم (UI)، الأزرار، القوائم، الأسعار، وسلة الشراء لضمان أعلى مقروئية على الموبايل.</p>
+                    <div class="mt-4 pt-3 border-t border-moom-border/70 space-y-1.5 font-sans text-moom-dark text-sm">
+                        <div class="font-light">وزن خفيف (Light 300) - تجربة تسوق سلسة</div>
+                        <div class="font-normal">وزن عادي (Regular 400) - تجربة تسوق سلسة</div>
+                        <div class="font-medium">وزن متوسط (Medium 500) - تجربة تسوق سلسة</div>
+                        <div class="font-bold">وزن عريض (Bold 700) - تجربة تسوق سلسة</div>
+                        <div class="font-black text-moom-burgundy">وزن أسود (Black 900) - تجربة تسوق سلسة</div>
+                    </div>
+                </div>
+
+                <div class="bg-moom-cream p-5 rounded-2xl border border-moom-border">
+                    <span class="text-xs font-mono bg-moom-goldDark text-white px-2.5 py-0.5 rounded-md">thmanyahseriftext</span>
+                    <h3 class="font-serifText text-2xl font-bold text-moom-burgundy mt-3">خط ثمانية سيرف نصي</h3>
+                    <p class="text-xs text-moom-dark/70 mt-1">مخصص للفقرات الوصفية، القصص، ورسائل كروت الإهداء المطبوعة المرفقة مع كل هدية.</p>
+                    <div class="mt-4 pt-3 border-t border-moom-border/70 space-y-1.5 font-serifText text-moom-dark text-base">
+                        <div class="font-light">وزن خفيف (Light 300) - هدايا تروي حكايتك</div>
+                        <div class="font-normal">وزن عادي (Regular 400) - هدايا تروي حكايتك</div>
+                        <div class="font-medium">وزن متوسط (Medium 500) - هدايا تروي حكايتك</div>
+                        <div class="font-bold">وزن عريض (Bold 700) - هدايا تروي حكايتك</div>
+                        <div class="font-black text-moom-burgundy">وزن أسود (Black 900) - هدايا تروي حكايتك</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- كود CSS جاهز للنسخ للمطورين -->
+            <div class="bg-moom-dark text-moom-cream p-5 rounded-2xl relative">
+                <div class="flex items-center justify-between mb-2">
+                    <span class="text-xs font-mono text-moom-gold">CSS @font-face Integration (حسب مسار مجلد thmanyah typeface)</span>
+                    <button onclick="copyCssSnippet()" class="text-xs bg-white/10 hover:bg-white/20 text-white px-3 py-1 rounded-lg transition">نسخ الكود</button>
+                </div>
+                <pre id="css-code-block" dir="ltr" class="text-xs font-mono text-moom-goldLight/90 overflow-x-auto leading-relaxed">@font-face {
+  font-family: 'thmanyahserifdisplay';
+  src: url('thmanyah typeface/thmanyahserifdisplay/woff2/thmanyahserifdisplay-Bold.woff2') format('woff2');
+  font-weight: 700;
+}
+@font-face {
+  font-family: 'thmanyahsans';
+  src: url('thmanyah typeface/thmanyahsans/woff2/thmanyahsans-Medium.woff2') format('woff2');
+  font-weight: 500;
+}
+@font-face {
+  font-family: 'thmanyahseriftext';
+  src: url('thmanyah typeface/thmanyahseriftext/woff2/thmanyahseriftext-Regular.woff2') format('woff2');
+  font-weight: 400;
+}</pre>
+            </div>
+        </div>
+
+        <!-- 3. قرارات تجربة المستخدم الإبداعية (Creative UX Decisions for Printed Gifts) -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-white p-6 rounded-3xl border border-moom-border shadow-soft">
+                <div class="w-11 h-11 rounded-2xl bg-moom-goldLight text-moom-burgundy flex items-center justify-center mb-4 font-black">UX 1</div>
+                <h3 class="font-display text-xl font-bold text-moom-burgundy mb-2">إلغاء الحيرة عبر المعاينة الحية</h3>
+                <p class="text-sm text-moom-dark/75 leading-relaxed">
+                    أكبر عائق في متاجر الهدايا المطبوعة هو تخوف العميل من شكل النص بعد الطباعة؛ لذلك صممنا «استوديو مووم التفاعلي» ليرى العميل عبارته بـ <strong>خط ثمانية</strong> مباشرة على المنتج قبل الشراء.
+                </p>
+            </div>
+            <div class="bg-white p-6 rounded-3xl border border-moom-border shadow-soft">
+                <div class="w-11 h-11 rounded-2xl bg-moom-goldLight text-moom-burgundy flex items-center justify-center mb-4 font-black">UX 2</div>
+                <h3 class="font-display text-xl font-bold text-moom-burgundy mb-2">مفتاح (قبل / بعد الطباعة)</h3>
+                <p class="text-sm text-moom-dark/75 leading-relaxed">
+                    في الكتالوج، أضفنا ميزة تفاعلية تتيح للزائر رؤية خامة المنتج الأصلية (مج، هودي، توت باج) ومقارنتها بشكلها بعد الطباعة، مما يرفع معدل التحويل (Conversion Rate).
+                </p>
+            </div>
+            <div class="bg-white p-6 rounded-3xl border border-moom-border shadow-soft">
+                <div class="w-11 h-11 rounded-2xl bg-moom-goldLight text-moom-burgundy flex items-center justify-center mb-4 font-black">UX 3</div>
+                <h3 class="font-display text-xl font-bold text-moom-burgundy mb-2">توظيف الشريطة الذهبية كعنصر تفاعلي</h3>
+                <p class="text-sm text-moom-dark/75 leading-relaxed">
+                    لم نترك الشريطة الذهبية حبيسة الشعار، بل حولناها إلى عنصر UX يربط الأقسام، ويظهر كخيار تغليف تفاعلي مع بطاقة إهداء حية تزيد من متوسط قيمة السلة (AOV).
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+         الفوتر (Moom Store Footer)
+         ========================================================================== -->
+    <footer class="bg-moom-dark text-moom-cream pt-14 pb-10 border-t-4 border-moom-gold">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-10 border-b border-white/10">
+                <div class="md:col-span-2 space-y-3">
+                    <div class="inline-block bg-white px-4 py-2 rounded-xl">
+                        <span class="font-brandEn font-extrabold text-xl tracking-wider text-moom-burgundy">MOOM STORE</span>
+                        <span class="text-moom-gold font-bold mx-1">•</span>
+                        <span class="font-sans font-bold text-base text-moom-burgundy">مووم ستور</span>
+                    </div>
+                    <p class="font-serifText text-sm text-moom-cream/75 max-w-md leading-relaxed">
+                        متجر متخصص في الهدايا المطبوعة والمخصصة حسب الطلب. نصنع من ذكرياتكم وعباراتكم قطعاً فنية تُغلف بشريطتنا الذهبية لتبقى في الذاكرة.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-moom-gold text-sm mb-3">أقسام المتجر</h4>
+                    <ul class="space-y-2 text-xs text-moom-cream/80">
+                        <li><a href="#print-studio" onclick="ensureStoreMode()" class="hover:text-moom-gold transition">استوديو الطباعة التفاعلي</a></li>
+                        <li><a href="#catalog-section" onclick="ensureStoreMode()" class="hover:text-moom-gold transition">مجات وأكواب مطبوعة</a></li>
+                        <li><a href="#catalog-section" onclick="ensureStoreMode()" class="hover:text-moom-gold transition">هوديز وتيشيرتات مطبوعة</a></li>
+                        <li><a href="#packaging-section" onclick="ensureStoreMode()" class="hover:text-moom-gold transition">بوكسات وتغليف مووم الملكي</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-moom-gold text-sm mb-3">نظام التصميم والخطوط</h4>
+                    <ul class="space-y-2 text-xs text-moom-cream/80">
+                        <li><button onclick="switchAppMode('design-system')" class="hover:text-moom-gold transition">دليل الهوية البصرية UI/UX</button></li>
+                        <li><button onclick="openFontLoaderModal()" class="hover:text-moom-gold transition">محمّل ملفات خط ثمانية (.woff2)</button></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-moom-cream/60 gap-2">
+                <p>© 2026 مووم ستور (MOOM STORE). جميع الحقوق محفوظة — تصميم UI/UX إبداعي بخط ثمانية.</p>
+                <p>صُمم بشغف ليليق بهداياكم المطبوعة 🎀</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==========================================================================
+         الدرج الجانبي لسلة الهدايا (Slide-over Cart Drawer)
+         ========================================================================== -->
+    <div id="cart-drawer-backdrop" onclick="toggleCartDrawer(false)" class="fixed inset-0 bg-moom-dark/60 backdrop-blur-xs z-50 hidden transition-opacity"></div>
+    <aside id="cart-drawer" class="fixed top-0 left-0 h-full w-full max-w-md bg-moom-cream z-50 shadow-2xl border-r border-moom-border transform -translate-x-full transition-transform duration-300 flex flex-col">
+        <!-- رأس السلة -->
+        <div class="p-5 bg-moom-burgundy text-white flex items-center justify-between">
+            <div class="flex items-center gap-2.5">
+                <i data-lucide="ShoppingBag" class="w-5 h-5 text-moom-gold"></i>
+                <h3 class="font-display text-xl font-bold">سلة هدايا مووم</h3>
+            </div>
+            <button onclick="toggleCartDrawer(false)" class="p-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white transition">
+                <i data-lucide="X" class="w-5 h-5"></i>
+            </button>
+        </div>
+
+        <!-- شريط التقدم للحصول على تغليف ذهبي مجاني -->
+        <div class="bg-moom-goldLight px-5 py-3 border-b border-moom-gold/40">
+            <div class="flex justify-between text-xs font-bold text-moom-burgundy mb-1.5">
+                <span id="free-wrap-msg">أضف 155 ج.م للحصول على شحن وتغليف ملكي مجاني!</span>
+                <span id="free-wrap-pct">80%</span>
+            </div>
+            <div class="w-full h-2 bg-white rounded-full overflow-hidden border border-moom-gold/40">
+                <div id="free-wrap-bar" class="h-full bg-moom-gold transition-all duration-500" style="width: 80%"></div>
+            </div>
+        </div>
+
+        <!-- قائمة عناصر السلة -->
+        <div id="cart-items-container" class="flex-1 overflow-y-auto p-5 space-y-4">
+            <!-- يتم ملؤها عبر الجافاسكربت -->
+        </div>
+
+        <!-- ذيل السلة وإتمام الطلب -->
+        <div class="p-5 bg-white border-t border-moom-border space-y-4">
+            <div class="flex items-center justify-between text-base font-bold text-moom-dark">
+                <span>إجمالي سلة الهدايا:</span>
+                <span id="cart-total-display" class="font-display text-2xl font-black text-moom-burgundy">645 ج.م</span>
+            </div>
+            <button onclick="openCheckoutModal()" class="w-full bg-moom-burgundy hover:bg-moom-berry text-white font-bold py-3.5 px-6 rounded-2xl shadow-elevated transition flex items-center justify-center gap-2">
+                <i data-lucide="CheckCircle2" class="w-5 h-5 text-moom-gold"></i>
+                <span>إتمام الطلب وتأكيد الطباعة</span>
+            </button>
+        </div>
+    </aside>
+
+    <!-- ==========================================================================
+         نافذة رفع وتجربة ملفات خط ثمانية المحلية (Font Loader Modal)
+         ========================================================================== -->
+    <div id="font-loader-modal" class="fixed inset-0 bg-moom-dark/70 backdrop-blur-xs z-50 hidden items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 border-2 border-moom-gold shadow-2xl relative">
+            <button onclick="closeFontLoaderModal()" class="absolute top-5 left-5 p-2 rounded-full bg-moom-sand hover:bg-moom-border text-moom-dark transition">
+                <i data-lucide="X" class="w-4 h-4"></i>
+            </button>
+
+            <div class="flex items-center gap-3 mb-4">
+                <div class="w-11 h-11 rounded-2xl bg-moom-burgundy text-moom-gold flex items-center justify-center font-black">
+                    <i data-lucide="Type" class="w-6 h-6"></i>
+                </div>
+                <div>
+                    <h3 class="font-display text-2xl font-black text-moom-burgundy">مُحمّل ملفات «خط ثمانية» الحية</h3>
+                    <p class="text-xs text-moom-dark/70">اربط ملفات `.woff2` أو `.otf` من مجلدك المحلي مباشرة بالمتصفح</p>
+                </div>
+            </div>
+
+            <p class="text-xs sm:text-sm text-moom-dark/80 leading-relaxed mb-4">
+                التصميم مُجهّز مسبقاً بجميع مسارات عائلة <strong>خط ثمانية</strong>. وإذا أردت معاينة ملفات الخط مباشرة من جهازك الآن دون الحاجة لخادم محلي، اختر ملفات الـ `.woff2` أو `.otf` من مجلد `thmanyah typeface` وسيتم حقنها فوراً في الصفحة:
+            </p>
+
+            <label class="block border-2 border-dashed border-moom-burgundy bg-moom-cream hover:bg-moom-goldLight/60 rounded-2xl p-6 text-center cursor-pointer transition">
+                <i data-lucide="UploadCloud" class="w-8 h-8 text-moom-burgundy mx-auto mb-2"></i>
+                <span class="block font-bold text-sm text-moom-burgundy">انقر لاختيار ملفات خط ثمانية (.woff2 أو .otf)</span>
+                <span class="block text-xs text-moom-dark/60 mt-1">يمكنك تحديد عدة ملفات معاً (Display, Sans, Serif Text)</span>
+                <input type="file" multiple accept=".woff2,.otf,.ttf" class="hidden" onchange="injectLocalThmanyahFonts(event)">
+            </label>
+
+            <div id="loaded-fonts-log" class="mt-4 text-xs text-emerald-800 bg-emerald-50 border border-emerald-200 rounded-xl p-3 hidden"></div>
+        </div>
+    </div>
+
+    <!-- ==========================================================================
+         نافذة إتمام الطلب بنجاح (Checkout Confirmation Modal)
+         ========================================================================== -->
+    <div id="checkout-modal" class="fixed inset-0 bg-moom-dark/70 backdrop-blur-xs z-50 hidden items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 border-2 border-moom-gold shadow-2xl text-center space-y-4 relative">
+            <div class="w-16 h-16 rounded-full bg-moom-goldLight border-2 border-moom-gold text-moom-burgundy mx-auto flex items-center justify-center">
+                <i data-lucide="Gift" class="w-8 h-8"></i>
+            </div>
+            <h3 class="font-display text-3xl font-black text-moom-burgundy">تم استلام تصميم هديتك!</h3>
+            <p class="font-serifText text-sm text-moom-dark/80 leading-relaxed">
+                شكراً لاختيارك <strong>مووم ستور</strong>. سيقوم فريق الطباعة بمراجعة تصميمك وتجهيزه بالطباعة الحرارية وتغليفه بشريطة مووم الذهبية.
+            </p>
+            <div id="checkout-summary-box" class="bg-moom-cream p-4 rounded-2xl border border-moom-border text-right text-xs space-y-1.5">
+                <!-- ملخص الطلب -->
+            </div>
+            <button onclick="closeCheckoutModal()" class="w-full bg-moom-burgundy hover:bg-moom-berry text-white font-bold py-3 rounded-xl transition">
+                العودة للمتجر
+            </button>
+        </div>
+    </div>
+
+    <!-- إشعار Toast عائم -->
+    <div id="toast-notification" class="fixed bottom-5 right-5 z-50 bg-moom-dark text-white px-5 py-3.5 rounded-2xl shadow-elevated border border-moom-gold/50 flex items-center gap-3 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none">
+        <span class="w-7 h-7 rounded-full bg-moom-gold text-moom-dark flex items-center justify-center font-black text-sm">✓</span>
+        <span id="toast-message" class="text-xs sm:text-sm font-bold">تمت الإضافة للسلة بنجاح!</span>
+    </div>
+
+    <!-- ==========================================================================
+         منطق التطبيق والتفاعل (Application JavaScript)
+         ========================================================================== -->
+    <script>
+        // 1. حالة استوديو الطباعة التفاعلي (Live Print Studio State)
+        const studioState = {
+            product: 'mug',
+            basePrice: 280,
+            text: 'وصالكِ قهوتي وصباحُ خيري',
+            subtext: '٢ نوفمبر ٢٠٢٦ • مووم ستور',
+            fontFamily: 'display', // 'display' | 'sans' | 'serifText'
+            bgColor: '#4D1227',
+            inkColor: '#F5A623',
+            colorName: 'عنابي مووم بذهبي',
+            graphic: 'ribbon', // 'ribbon' | 'heart' | 'coffee' | 'stars' | 'custom'
+            customImageData: null,
+            giftWrap: true,
+            giftTo: 'إلى: سارة',
+            giftFrom: 'من: أحمد • بكل الحب'
+        };
+
+        const productPrices = {
+            mug: { name: 'مج سيراميك مووم مطبوع', price: 280 },
+            hoodie: { name: 'هودي شتوي ثقيل مطبوع', price: 650 },
+            frame: { name: 'تابلوه خشبي محفور ومطبوع', price: 420 },
+            tote: { name: 'توت باج قماش كانفاس مطبوع', price: 240 },
+            box: { name: 'بوكس هدايا مووم الملكي المتكامل', price: 850 }
+        };
+
+        // 2. بيانات كتالوج الهدايا المطبوعة (Curated Printed Gifts Catalog)
+        let showPrintedCatalog = true;
+        let currentCatalogFilter = 'all';
+
+        const catalogProducts = [
+            {
+                id: 'p1',
+                title: 'مج «وصالكِ قهوتي» الحراري',
+                category: 'mugs',
+                categoryAr: 'مجات وأكواب',
+                price: 280,
+                rating: '4.9',
+                badge: 'الأكثر مبيعاً',
+                studioPreset: { product: 'mug', text: 'وصالكِ قهوتي وصباحُ خيري', subtext: 'صباح الحب', font: 'display', bg: '#4D1227', ink: '#F5A623', graphic: 'coffee' },
+                desc: 'مج سيراميك فاخر بطباعة حرارية بارزة لعبارتك المفضلة بخط ثمانية سيرف.'
+            },
+            {
+                id: 'p2',
+                title: 'هودي شتوي «لا تبرح البال»',
+                category: 'apparel',
+                categoryAr: 'ملابس مطبوعة',
+                price: 650,
+                rating: '5.0',
+                badge: 'إصدار شتوي',
+                studioPreset: { product: 'hoodie', text: 'لا تبرحُ البالَ إن غبتَ', subtext: 'MOOM EDITION', font: 'display', bg: '#1E1B18', ink: '#F5A623', graphic: 'stars' },
+                desc: 'هودي قطن 100% مبطن بطباعة DTF عالية الثبات لا تتأثر بالغسيل.'
+            },
+            {
+                id: 'p3',
+                title: 'تابلوه خشبي لتخليد التواريخ',
+                category: 'decor',
+                categoryAr: 'تابلوهات وخشبيات',
+                price: 420,
+                rating: '4.8',
+                badge: 'هدية خطوبة وزواج',
+                studioPreset: { product: 'frame', text: 'كلّ عامٍ وأنتَ بهجةُ الأيام', subtext: '٢ نوفمبر ٢٠٢٦', font: 'serifText', bg: '#FCF9F5', ink: '#4D1227', graphic: 'heart' },
+                desc: 'إطار خشبي طبيعي مع طباعة أكريليك وورق قطني فاخر يخلد أجمل ذكرياتكم.'
+            },
+            {
+                id: 'p4',
+                title: 'توت باج كانفاس «صُنع بشغف»',
+                category: 'apparel',
+                categoryAr: 'ملابس مطبوعة',
+                price: 240,
+                rating: '4.9',
+                badge: 'عملي وأنيق',
+                studioPreset: { product: 'tote', text: 'صُنع بشغف لمن يُشبه القمر', subtext: 'مووم ستور', font: 'sans', bg: '#F3ECE3', ink: '#731C3B', graphic: 'ribbon' },
+                desc: 'حقيبة قماش كانفاس متينة بمقابض مريحة وطباعة حريرية مقاومة للمسح.'
+            },
+            {
+                id: 'p5',
+                title: 'بوكس مووم الملكي بشريطة ذهبية',
+                category: 'boxes',
+                categoryAr: 'بوكسات الهدايا',
+                price: 850,
+                rating: '5.0',
+                badge: 'تغليف فاخر',
+                studioPreset: { product: 'box', text: 'هديةٌ من القلب لمن سكنَ القلب', subtext: 'إصدار مووم الخاص', font: 'display', bg: '#4D1227', ink: '#F5A623', graphic: 'ribbon' },
+                desc: 'صندوق هدايا مقوى مطبوع بالاسم من الخارج ومربوط بشريطة مووم الذهبية.'
+            },
+            {
+                id: 'p6',
+                title: 'مج الثنائي «صديق العمر»',
+                category: 'mugs',
+                categoryAr: 'مجات وأكواب',
+                price: 295,
+                rating: '4.9',
+                badge: 'هدية الأصدقاء',
+                studioPreset: { product: 'mug', text: 'صديقُ العمرِ ومأمنُ الروح', subtext: 'أفضل الأصدقاء', font: 'sans', bg: '#FCF9F5', ink: '#4D1227', graphic: 'stars' },
+                desc: 'تصميم عصري بخط ثمانية سانس مع إمكانية إضافة تاريخ الصداقة أو التخرج.'
+            }
+        ];
+
+        // 3. سلة المشتريات الافتراضية
+        let cartItems = [
+            {
+                id: 'c1',
+                name: 'مج سيراميك مووم مطبوع',
+                customText: 'وصالكِ قهوتي وصباحُ خيري',
+                fontName: 'خط ثمانية سيرف دسبلاي',
+                colorName: 'عنابي مووم بذهبي',
+                giftWrap: true,
+                price: 325
+            },
+            {
+                id: 'c2',
+                name: 'تابلوه خشبي محفور ومطبوع',
+                customText: 'كلّ عامٍ وأنتَ بهجةُ الأيام',
+                fontName: 'خط ثمانية سيرف نصي',
+                colorName: 'كريمي ورقي بعنابي',
+                giftWrap: false,
+                price: 420
+            }
+        ];
+
+        // ==========================================================================
+        // دالة توليد الرسومات التوضيحية (SVG Mockup Generator) للمنتجات المطبوعة
+        // ==========================================================================
+        function generateProductSVG(type, bg, ink, text, subtext, fontKey, graphic, isBlank = false, customImg = null) {
+            const fontMap = {
+                display: "'thmanyahserifdisplay', 'Amiri', serif",
+                sans: "'thmanyahsans', 'IBM Plex Sans Arabic', sans-serif",
+                serifText: "'thmanyahseriftext', 'Noto Naskh Arabic', serif"
+            };
+            const chosenFont = fontMap[fontKey] || fontMap.display;
+
+            // أيقونة أو صورة فوق النص المطبوع
+            let graphicMarkup = '';
+            if (!isBlank) {
+                if (customImg) {
+                    graphicMarkup = `<image href="${customImg}" x="105" y="72" width="50" height="50" preserveAspectRatio="xMidYMid slice" clip-path="inset(0% round 8px)"/>`;
+                } else if (graphic === 'ribbon') {
+                    graphicMarkup = `
+                        <path d="M122 92 C108 92, 104 80, 112 75 C120 71, 127 81, 130 87 C133 81, 140 71, 148 75 C156 80, 152 92, 138 92" fill="none" stroke="${ink}" stroke-width="2.5" stroke-linecap="round"/>
+                        <path d="M115 94 Q130 89 145 94" stroke="${ink}" stroke-width="2" fill="none"/>
+                    `;
+                } else if (graphic === 'heart') {
+                    graphicMarkup = `<path d="M130 96 C130 96, 114 86, 114 77 C114 71, 122 69, 130 76 C138 69, 146 71, 146 77 C146 86, 130 96, 130 96 Z" fill="none" stroke="${ink}" stroke-width="2.5"/>`;
+                } else if (graphic === 'coffee') {
+                    graphicMarkup = `
+                        <path d="M118 80 H140 V90 C140 96, 118 96, 118 90 Z" fill="none" stroke="${ink}" stroke-width="2.2"/>
+                        <path d="M140 82 H145 C147 82, 147 88, 145 88 H140" fill="none" stroke="${ink}" stroke-width="2"/>
+                        <path d="M125 74 Q127 70 125 67 M133 74 Q135 70 133 67" stroke="${ink}" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+                    `;
+                } else if (graphic === 'stars') {
+                    graphicMarkup = `
+                        <path d="M130 70 L133 79 L142 82 L133 85 L130 94 L127 85 L118 82 L127 79 Z" fill="${ink}"/>
+                        <circle cx="114" cy="74" r="2" fill="${ink}"/>
+                        <circle cx="146" cy="89" r="2" fill="${ink}"/>
+                    `;
+                }
+            }
+
+            const printOverlay = isBlank ? `
+                <text x="130" y="130" text-anchor="middle" fill="${ink}" fill-opacity="0.35" font-family="${chosenFont}" font-size="11" font-weight="700">مساحة الطباعة المخصصة</text>
+                <rect x="75" y="85" width="110" height="75" rx="8" fill="none" stroke="${ink}" stroke-opacity="0.3" stroke-dasharray="4 4"/>
+            ` : `
+                ${graphicMarkup}
+                <text x="130" y="${customImg ? '138' : '122'}" text-anchor="middle" fill="${ink}" font-family="${chosenFont}" font-size="13.5" font-weight="800">${escapeSvgText(text)}</text>
+                <text x="130" y="${customImg ? '156' : '142'}" text-anchor="middle" fill="${ink}" fill-opacity="0.8" font-family="'thmanyahsans', sans-serif" font-size="8.5" font-weight="600">${escapeSvgText(subtext)}</text>
+                <line x1="95" y1="${customImg ? '164' : '152'}" x2="165" y2="${customImg ? '164' : '152'}" stroke="${ink}" stroke-opacity="0.5" stroke-width="1"/>
+            `;
+
+            if (type === 'mug') {
+                return `
+                <svg viewBox="0 0 260 220" class="w-full h-full drop-shadow-md">
+                    <!-- ظل المج -->
+                    <ellipse cx="125" cy="198" rx="68" ry="10" fill="rgba(77,18,39,0.12)"/>
+                    <!-- يد المج -->
+                    <path d="M178 72 H198 C216 72, 216 154, 198 154 H178" fill="none" stroke="${bg}" stroke-width="14" stroke-linecap="round"/>
+                    <path d="M178 72 H196 C210 72, 210 154, 196 154 H178" fill="none" stroke="${ink}" stroke-opacity="0.25" stroke-width="3"/>
+                    <!-- جسم المج -->
+                    <rect x="62" y="46" width="124" height="144" rx="18" fill="${bg}" stroke="#4D1227" stroke-opacity="0.15" stroke-width="2"/>
+                    <!-- فوهة المج العلوية -->
+                    <ellipse cx="124" cy="48" rx="62" ry="11" fill="#F3ECE3" stroke="${bg}" stroke-width="4"/>
+                    <!-- لمعة السيراميك -->
+                    <path d="M74 64 V168" stroke="white" stroke-opacity="0.18" stroke-width="5" stroke-linecap="round"/>
+                    <!-- الطباعة في منتصف المج -->
+                    <g transform="translate(-6, 0)">
+                        ${printOverlay}
+                    </g>
+                </svg>`;
+            }
+
+            if (type === 'hoodie') {
+                return `
+                <svg viewBox="0 0 260 220" class="w-full h-full drop-shadow-md">
+                    <!-- الأكمام والجسم للهودي -->
+                    <path d="M88 34 L42 62 L24 148 L54 156 L68 92 L68 194 L192 194 L192 92 L206 156 L236 148 L218 62 L172 34 Z" fill="${bg}" stroke="#4D1227" stroke-opacity="0.2" stroke-width="2" stroke-linejoin="round"/>
+                    <!-- كابيشو الهودي (الغطاء) -->
+                    <path d="M88 34 C88 14, 172 14, 172 34 C158 50, 102 50, 88 34 Z" fill="${bg}" stroke="${ink}" stroke-opacity="0.35" stroke-width="2"/>
+                    <!-- رباط الهودي الذهبي -->
+                    <path d="M118 44 V70 M142 44 V70" stroke="${ink}" stroke-width="2.2" stroke-linecap="round"/>
+                    <!-- جيب الكنغر السفلي -->
+                    <path d="M86 155 L96 138 H164 L174 155 V184 H86 Z" fill="black" fill-opacity="0.12" stroke="${ink}" stroke-opacity="0.2" stroke-width="1.5"/>
+                    <!-- الطباعة على صدر الهودي -->
+                    <g transform="translate(0, -14) scale(0.95) translate(6, 8)">
+                        ${printOverlay}
+                    </g>
+                </svg>`;
+            }
+
+            if (type === 'frame') {
+                return `
+                <svg viewBox="0 0 260 220" class="w-full h-full drop-shadow-md">
+                    <!-- الإطار الخشبي الخارجي -->
+                    <rect x="48" y="18" width="164" height="184" rx="10" fill="#4D1227" stroke="#F5A623" stroke-width="4"/>
+                    <!-- الإطار الداخلي المذهب -->
+                    <rect x="58" y="28" width="144" height="164" rx="6" fill="${bg}" stroke="#D4880F" stroke-width="1.5"/>
+                    <!-- مسند التابلوه السفلي -->
+                    <path d="M95 202 L85 214 M165 202 L175 214" stroke="#4D1227" stroke-width="5" stroke-linecap="round"/>
+                    <!-- الطباعة داخل التابلوه -->
+                    <g transform="translate(0, -4)">
+                        ${printOverlay}
+                    </g>
+                </svg>`;
+            }
+
+            if (type === 'tote') {
+                return `
+                <svg viewBox="0 0 260 220" class="w-full h-full drop-shadow-md">
+                    <!-- يد الحقيبة القماشية -->
+                    <path d="M96 58 V24 C96 10, 164 10, 164 24 V58" fill="none" stroke="#4D1227" stroke-width="9" stroke-linecap="round"/>
+                    <!-- جسم التوت باج -->
+                    <path d="M62 54 H198 L206 196 H54 Z" fill="${bg}" stroke="#4D1227" stroke-opacity="0.25" stroke-width="2" stroke-linejoin="round"/>
+                    <!-- خياطة علوية -->
+                    <line x1="64" y1="64" x2="196" y2="64" stroke="${ink}" stroke-opacity="0.35" stroke-dasharray="4 3" stroke-width="1.5"/>
+                    <!-- الطباعة في منتصف الحقيبة -->
+                    <g transform="translate(0, 6)">
+                        ${printOverlay}
+                    </g>
+                </svg>`;
+            }
+
+            // Default: 'box' (Royal Gift Box with Golden Ribbon)
+            return `
+            <svg viewBox="0 0 260 220" class="w-full h-full drop-shadow-md">
+                <!-- قاعدة الصندوق الملكي -->
+                <rect x="46" y="54" width="168" height="136" rx="14" fill="${bg}" stroke="#F5A623" stroke-width="2.5"/>
+                <!-- غطاء الصندوق العلوي -->
+                <rect x="38" y="38" width="184" height="28" rx="8" fill="${bg}" stroke="#F5A623" stroke-width="2.5"/>
+                <!-- شريطة مووم الذهبية المعقودة فوق الصندوق -->
+                <path d="M130 38 C102 38, 92 14, 108 8 C120 3, 128 24, 130 36 C132 24, 140 3, 152 8 C168 14, 158 38, 130 38 Z" fill="#F5A623"/>
+                <rect x="122" y="38" width="16" height="28" fill="#F5A623"/>
+                <!-- الطباعة المذهبة على الصندوق -->
+                <g transform="translate(0, 8)">
+                    ${printOverlay}
+                </g>
+            </svg>`;
+        }
+
+        function escapeSvgText(str) {
+            if (!str) return '';
+            return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        }
+
+        // ==========================================================================
+        // تحديث معاينة استوديو الطباعة الحية (Update Studio Live Preview)
+        // ==========================================================================
+        function updateStudioPreview() {
+            studioState.text = document.getElementById('custom-text-input').value || 'مووم ستور';
+            studioState.subtext = document.getElementById('custom-subtext-input').value || '';
+            studioState.giftWrap = document.getElementById('gift-wrap-toggle').checked;
+            studioState.giftTo = document.getElementById('gift-to-input').value || 'إلى من نحب';
+            studioState.giftFrom = document.getElementById('gift-from-input').value || 'بكل الحب';
+
+            // رسم الـ SVG داخل الاستوديو
+            const stage = document.getElementById('studio-svg-stage');
+            stage.innerHTML = generateProductSVG(
+                studioState.product,
+                studioState.bgColor,
+                studioState.inkColor,
+                studioState.text,
+                studioState.subtext,
+                studioState.fontFamily,
+                studioState.graphic,
+                false,
+                studioState.customImageData
+            );
+
+            // تحديث كارت الإهداء والتغليف
+            const cardPreview = document.getElementById('live-gift-card-preview');
+            const cardInputs = document.getElementById('gift-card-inputs');
+            const ribbonBadge = document.getElementById('mockup-ribbon-badge');
+
+            if (studioState.giftWrap) {
+                cardPreview.classList.remove('hidden');
+                cardPreview.classList.add('flex');
+                cardInputs.classList.remove('hidden');
+                ribbonBadge.classList.remove('hidden');
+                document.getElementById('preview-card-to').textContent = studioState.giftTo;
+                document.getElementById('preview-card-from').textContent = studioState.giftFrom;
+            } else {
+                cardPreview.classList.add('hidden');
+                cardInputs.classList.add('hidden');
+                ribbonBadge.classList.add('hidden');
+            }
+
+            // حساب السعر النهائي
+            const wrapCost = studioState.giftWrap ? 45 : 0;
+            const total = studioState.basePrice + wrapCost;
+            document.getElementById('studio-total-price').textContent = total;
+        }
+
+        function selectStudioProduct(prodKey) {
+            studioState.product = prodKey;
+            studioState.basePrice = productPrices[prodKey].price;
+            document.getElementById('studio-base-price-label').textContent = `السعر الأساسي: ${studioState.basePrice} ج.م`;
+
+            document.querySelectorAll('.studio-prod-btn').forEach(btn => {
+                btn.className = 'studio-prod-btn p-3 rounded-2xl border-2 border-moom-border bg-moom-cream text-moom-dark hover:border-moom-burgundy text-center transition flex flex-col items-center gap-1.5';
+            });
+            const activeBtn = document.getElementById(`prod-btn-${prodKey}`);
+            if (activeBtn) {
+                activeBtn.className = 'studio-prod-btn p-3 rounded-2xl border-2 border-moom-burgundy bg-moom-burgundy text-white text-center transition flex flex-col items-center gap-1.5 shadow-sm';
+            }
+            updateStudioPreview();
+        }
+
+        function selectStudioFont(fontKey) {
+            studioState.fontFamily = fontKey;
+            const labels = {
+                display: 'خط ثمانية سيرف دسبلاي',
+                sans: 'خط ثمانية سانس',
+                serifText: 'خط ثمانية سيرف نصي'
+            };
+            document.getElementById('preview-font-badge').textContent = labels[fontKey];
+
+            ['display', 'sans', 'serifText'].forEach(k => {
+                const btn = document.getElementById(`font-btn-${k}`);
+                if (k === fontKey) {
+                    btn.className = 'p-3.5 rounded-2xl border-2 border-moom-burgundy bg-moom-goldLight/60 text-right transition shadow-xs';
+                } else {
+                    btn.className = 'p-3.5 rounded-2xl border-2 border-moom-border bg-moom-cream hover:border-moom-burgundy text-right transition';
+                }
+            });
+            updateStudioPreview();
+        }
+
+        function selectStudioColor(bg, ink, name) {
+            studioState.bgColor = bg;
+            studioState.inkColor = ink;
+            studioState.colorName = name;
+            document.getElementById('selected-color-name').textContent = `اللون المختار: ${name}`;
+            updateStudioPreview();
+        }
+
+        function selectStudioGraphic(gKey) {
+            studioState.graphic = gKey;
+            studioState.customImageData = null;
+            ['ribbon', 'heart', 'coffee', 'stars'].forEach(k => {
+                const btn = document.getElementById(`graphic-btn-${k}`);
+                if (btn) {
+                    btn.className = (k === gKey)
+                        ? 'px-3 py-2 rounded-xl border-2 border-moom-burgundy bg-moom-goldLight text-xs font-bold text-moom-burgundy'
+                        : 'px-3 py-2 rounded-xl border border-moom-border bg-moom-cream text-xs font-bold text-moom-dark';
+                }
+            });
+            updateStudioPreview();
+        }
+
+        function handleCustomImageUpload(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                studioState.customImageData = e.target.result;
+                showToast('تم إدراج صورتك الخاصة على المنتج بنجاح!');
+                updateStudioPreview();
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function setQuote(mainText, subText) {
+            document.getElementById('custom-text-input').value = mainText;
+            document.getElementById('custom-subtext-input').value = subText;
+            updateStudioPreview();
+        }
+
+        // ==========================================================================
+        // عرض الهيرو التفاعلي ومستشار الهدايا الذكي
+        // ==========================================================================
+        const heroItems = [
+            { prod: 'mug', bg: '#4D1227', ink: '#F5A623', text: 'وصالكِ قهوتي وصباحُ خيري', sub: '٢ نوفمبر ٢٠٢٦', font: 'display', graphic: 'coffee', tag: 'الأكثر طلباً للإهداء', title: 'مج «وصالكِ قهوتي» الملكي', desc: 'طباعة حرارية بارزة + تغليف شريطة مووم الذهبية' },
+            { prod: 'hoodie', bg: '#1E1B18', ink: '#F5A623', text: 'لا تبرحُ البالَ إن غبتَ', sub: 'MOOM WINTER', font: 'display', graphic: 'stars', tag: 'مجموعة الشتاء', title: 'هودي مطبوع بخط ثمانية', desc: 'قطن ثقيل مبطن مع طباعة ذهبية مقاومة للغسيل' },
+            { prod: 'frame', bg: '#FCF9F5', ink: '#4D1227', text: 'كلّ عامٍ وأنتَ بهجةُ الأيام', sub: 'ذكرى خالدة', font: 'serifText', graphic: 'heart', tag: 'تخليد الذكريات', title: 'تابلوه خشبي ومطبوع فاخر', desc: 'إطار خشب طبيعي مع طباعة على ورق قطني' },
+            { prod: 'box', bg: '#4D1227', ink: '#F5A623', text: 'هديةٌ لمن يُشبه القمر', sub: 'مووم ستور', font: 'display', graphic: 'ribbon', tag: 'تغليف متكامل', title: 'بوكس مووم الملكي بالشريطة', desc: 'يضم مج + كارت إهداء مختوم + شريطة ساتان ذهبية' }
+        ];
+
+        function setHeroShowcase(index) {
+            const item = heroItems[index];
+            document.getElementById('hero-svg-container').innerHTML = `<div class="w-56 h-52">${generateProductSVG(item.prod, item.bg, item.ink, item.text, item.sub, item.font, item.graphic)}</div>`;
+            document.getElementById('hero-item-tag').textContent = item.tag;
+            document.getElementById('hero-item-title').textContent = item.title;
+            document.getElementById('hero-item-desc').textContent = item.desc;
+
+            [0, 1, 2, 3].forEach(i => {
+                const btn = document.getElementById(`hero-tab-${i}`);
+                btn.className = (i === index)
+                    ? 'flex-1 py-2 px-3 rounded-xl text-xs font-bold border transition bg-moom-burgundy text-white border-moom-burgundy shadow-xs'
+                    : 'flex-1 py-2 px-3 rounded-xl text-xs font-bold border transition bg-white text-moom-dark border-moom-border hover:border-moom-burgundy';
+            });
+        }
+
+        function applySmartGiftFinder() {
+            const rec = document.getElementById('finder-recipient').value;
+            const style = document.getElementById('finder-style').value;
+
+            const presets = {
+                partner: { prod: 'mug', text: 'وصالكِ قهوتي وصباحُ خيري', sub: 'ذكرى حبنا • مووم', bg: '#4D1227', ink: '#F5A623', graphic: 'heart' },
+                friend: { prod: 'hoodie', text: 'صديقُ العمرِ ومأمنُ الروح', sub: 'BEST FRIENDS', bg: '#1E1B18', ink: '#F5A623', graphic: 'stars' },
+                family: { prod: 'frame', text: 'دمتِ لنا دفءَ الحياة وبركتها', sub: 'شكراً من القلب', bg: '#FCF9F5', ink: '#4D1227', graphic: 'ribbon' },
+                grad: { prod: 'box', text: 'مباركُ التخرجِ ومنها للأعلى', sub: 'دفعة ٢٠٢٦', bg: '#4D1227', ink: '#F5A623', graphic: 'stars' }
+            };
+
+            const chosen = presets[rec] || presets.partner;
+            selectStudioProduct(chosen.prod);
+            setQuote(chosen.text, chosen.sub);
+            selectStudioColor(chosen.bg, chosen.ink, 'تنسيق مستشار الهدايا');
+            selectStudioGraphic(chosen.graphic);
+            selectStudioFont(style === 'modern' ? 'sans' : (style === 'poetic' ? 'display' : 'serifText'));
+
+            scrollToStudio();
+            showToast('تم تجهيز اقتراح الهدية في استوديو الطباعة!');
+        }
+
+        // ==========================================================================
+        // عرض وفلترة كتالوج المنتجات (Catalog Rendering & Before/After Print Toggle)
+        // ==========================================================================
+        function renderCatalog() {
+            const grid = document.getElementById('catalog-grid');
+            const filtered = currentCatalogFilter === 'all'
+                ? catalogProducts
+                : catalogProducts.filter(p => p.category === currentCatalogFilter);
+
+            grid.innerHTML = filtered.map(item => {
+                const p = item.studioPreset;
+                const svgThumb = generateProductSVG(p.product, p.bg, p.ink, p.text, p.subtext, p.font, p.graphic, !showPrintedCatalog);
+
+                return `
+                <article class="bg-white rounded-3xl border border-moom-border overflow-hidden shadow-soft hover:shadow-elevated transition-all duration-300 flex flex-col group">
+                    <!-- صورة المنتج الـ SVG مع شارة -->
+                    <div class="bg-moom-sand/70 p-6 relative h-64 flex items-center justify-center border-b border-moom-border/60">
+                        <span class="absolute top-4 right-4 bg-moom-burgundy text-moom-gold text-xs font-bold px-3 py-1 rounded-full">${item.badge}</span>
+                        <span class="absolute top-4 left-4 bg-white/90 text-moom-dark text-xs font-bold px-2.5 py-1 rounded-full border border-moom-border">${item.rating} ★</span>
+                        
+                        <div class="w-48 h-48 transform group-hover:scale-105 transition duration-500">
+                            ${svgThumb}
+                        </div>
+
+                        <div class="absolute bottom-3 left-4 text-[11px] font-bold ${showPrintedCatalog ? 'text-moom-burgundy' : 'text-moom-dark/50'}">
+                            ${showPrintedCatalog ? '✨ معاينة بعد الطباعة' : '📦 معاينة القطعة خام'}
+                        </div>
+                    </div>
+
+                    <!-- تفاصيل البطاقة -->
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <div class="text-xs font-bold text-moom-berry mb-1">${item.categoryAr}</div>
+                            <h3 class="font-display text-2xl font-bold text-moom-burgundy">${item.title}</h3>
+                            <p class="text-xs sm:text-sm text-moom-dark/75 mt-1.5 leading-relaxed">${item.desc}</p>
+                        </div>
+
+                        <div class="pt-3 border-t border-moom-border/70 flex items-center justify-between gap-2">
+                            <div>
+                                <span class="text-[11px] text-moom-dark/60 block">السعر شامل الطباعة</span>
+                                <span class="font-display text-2xl font-black text-moom-burgundy">${item.price} <small class="text-xs font-sans">ج.م</small></span>
+                            </div>
+
+                            <div class="flex items-center gap-2">
+                                <button onclick="loadPresetToStudio('${item.id}')" class="bg-moom-goldLight hover:bg-moom-gold text-moom-burgundy hover:text-moom-dark border border-moom-gold/60 font-bold text-xs px-3.5 py-2.5 rounded-xl transition flex items-center gap-1" title="عدّل العبارة واللون في الاستوديو">
+                                    <i data-lucide="Wand2" class="w-3.5 h-3.5"></i>
+                                    <span>صمّمها بنفسك</span>
+                                </button>
+                                <button onclick="quickAddCatalogItem('${item.id}')" class="bg-moom-burgundy hover:bg-moom-berry text-white font-bold text-xs px-3.5 py-2.5 rounded-xl transition flex items-center gap-1">
+                                    <i data-lucide="Plus" class="w-3.5 h-3.5 text-moom-gold"></i>
+                                    <span>للسلة</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </article>`;
+            }).join('');
+
+            lucide.createIcons();
+        }
+
+        function toggleCatalogPrintView(isPrinted) {
+            showPrintedCatalog = isPrinted;
+            document.getElementById('view-printed-btn').className = isPrinted
+                ? 'px-3.5 py-1.5 rounded-xl text-xs font-bold bg-moom-burgundy text-white shadow-sm transition'
+                : 'px-3.5 py-1.5 rounded-xl text-xs font-bold text-moom-dark/70 hover:text-moom-burgundy transition';
+            document.getElementById('view-blank-btn').className = !isPrinted
+                ? 'px-3.5 py-1.5 rounded-xl text-xs font-bold bg-moom-burgundy text-white shadow-sm transition'
+                : 'px-3.5 py-1.5 rounded-xl text-xs font-bold text-moom-dark/70 hover:text-moom-burgundy transition';
+            renderCatalog();
+        }
+
+        function filterCatalog(cat) {
+            currentCatalogFilter = cat;
+            document.querySelectorAll('.cat-filter-btn').forEach(btn => {
+                if (btn.dataset.cat === cat) {
+                    btn.className = 'cat-filter-btn px-5 py-2.5 rounded-full text-sm font-bold bg-moom-burgundy text-white shadow-sm whitespace-nowrap transition';
+                } else {
+                    btn.className = 'cat-filter-btn px-5 py-2.5 rounded-full text-sm font-bold bg-moom-sand text-moom-dark hover:bg-moom-goldLight whitespace-nowrap transition';
+                }
+            });
+            renderCatalog();
+        }
+
+        function loadPresetToStudio(prodId) {
+            const item = catalogProducts.find(p => p.id === prodId);
+            if (!item) return;
+            const pr = item.studioPreset;
+            selectStudioProduct(pr.product);
+            setQuote(pr.text, pr.subtext);
+            selectStudioFont(pr.font);
+            selectStudioColor(pr.bg, pr.ink, 'لون التشكيلة المختارة');
+            selectStudioGraphic(pr.graphic);
+            scrollToStudio();
+            showToast(`تم تحميل «${item.title}» في الاستوديو لتعديله!`);
+        }
+
+        function quickAddCatalogItem(prodId) {
+            const item = catalogProducts.find(p => p.id === prodId);
+            if (!item) return;
+            cartItems.push({
+                id: 'c_' + Date.now(),
+                name: item.title,
+                customText: item.studioPreset.text,
+                fontName: 'خط ثمانية',
+                colorName: 'اللون الأصلي للعرض',
+                giftWrap: true,
+                price: item.price
+            });
+            renderCart();
+            showToast(`تمت إضافة «${item.title}» إلى سلة الهدايا!`);
+        }
+
+        // ==========================================================================
+        // محاكاة فتح بوكس مووم الملكي (Unboxing Simulation)
+        // ==========================================================================
+        let isBoxUnboxed = false;
+        function renderUnboxingState() {
+            const container = document.getElementById('unboxing-graphic');
+            const textEl = document.getElementById('unboxing-status-text');
+            const btnEl = document.getElementById('unbox-btn');
+
+            if (!isBoxUnboxed) {
+                container.innerHTML = `<div class="w-52 h-44">${generateProductSVG('box', '#4D1227', '#F5A623', 'MOOM STORE', 'هدية مطبوعة بشغف', 'display', 'ribbon')}</div>`;
+                textEl.textContent = 'بوكس عنابي فاخر معقود بشريطة مووم الذهبية ومختوم بالشمع';
+                btnEl.innerHTML = `<i data-lucide="Sparkles" class="w-4 h-4"></i><span>اسحب الشريطة الذهبية لفتح البوكس!</span>`;
+            } else {
+                container.innerHTML = `
+                    <div class="flex items-center justify-center gap-4">
+                        <div class="w-36 h-36">${generateProductSVG('mug', '#4D1227', '#F5A623', 'وصالكِ قهوتي', '٢ نوفمبر ٢٠٢٦', 'display', 'coffee')}</div>
+                        <div class="bg-white p-3.5 rounded-2xl border-2 border-moom-gold shadow-md max-w-[160px] text-right">
+                            <div class="text-[10px] font-bold text-moom-goldDark">بطاقة إهداء مووم</div>
+                            <div class="font-display text-sm font-bold text-moom-burgundy mt-1">«كل عام وأنتِ بهجة الأيام»</div>
+                            <div class="text-[10px] text-moom-dark/60 mt-1">مطبوع بخط ثمانية</div>
+                        </div>
+                    </div>
+                `;
+                textEl.textContent = '✨ مفاجأة مبهجة! القطعة مطبوعة بدقة مع كارت الإهداء المعطّر بالداخل';
+                btnEl.innerHTML = `<i data-lucide="Package" class="w-4 h-4"></i><span>أعد ربط الشريطة الذهبية</span>`;
+            }
+            lucide.createIcons();
+        }
+
+        function toggleUnboxSimulation() {
+            isBoxUnboxed = !isBoxUnboxed;
+            renderUnboxingState();
+        }
+
+        // ==========================================================================
+        // إدارة سلة الهدايا وإتمام الطلب (Cart & Checkout Management)
+        // ==========================================================================
+        function addCustomDesignToCart() {
+            const prodInfo = productPrices[studioState.product];
+            const wrapPrice = studioState.giftWrap ? 45 : 0;
+            const finalPrice = prodInfo.price + wrapPrice;
+
+            const fontNames = {
+                display: 'خط ثمانية سيرف دسبلاي',
+                sans: 'خط ثمانية سانس',
+                serifText: 'خط ثمانية سيرف نصي'
+            };
+
+            cartItems.push({
+                id: 'custom_' + Date.now(),
+                name: prodInfo.name,
+                customText: studioState.text,
+                fontName: fontNames[studioState.fontFamily],
+                colorName: studioState.colorName,
+                giftWrap: studioState.giftWrap,
+                price: finalPrice
+            });
+
+            renderCart();
+            toggleCartDrawer(true);
+            showToast('تم اعتماد تصميمك وإضافته إلى سلة الهدايا!');
+        }
+
+        function removeCartItem(id) {
+            cartItems = cartItems.filter(item => item.id !== id);
+            renderCart();
+        }
+
+        function renderCart() {
+            const container = document.getElementById('cart-items-container');
+            const badge = document.getElementById('cart-count-badge');
+            badge.textContent = cartItems.length;
+
+            if (cartItems.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-14 space-y-3">
+                        <div class="w-16 h-16 rounded-full bg-moom-sand text-moom-burgundy mx-auto flex items-center justify-center">
+                            <i data-lucide="ShoppingBag" class="w-8 h-8"></i>
+                        </div>
+                        <div class="font-display text-xl font-bold text-moom-burgundy">سلة الهدايا فارغة</div>
+                        <p class="text-xs text-moom-dark/70">ابدأ بتصميم هديتك المطبوعة في استوديو مووم!</p>
+                    </div>
+                `;
+                document.getElementById('cart-total-display').textContent = '0 ج.م';
+                lucide.createIcons();
+                return;
+            }
+
+            let total = 0;
+            container.innerHTML = cartItems.map(item => {
+                total += item.price;
+                return `
+                <div class="bg-white p-4 rounded-2xl border border-moom-border shadow-xs space-y-2 relative">
+                    <button onclick="removeCartItem('${item.id}')" class="absolute top-3 left-3 text-moom-dark/40 hover:text-red-600 transition" title="حذف">
+                        <i data-lucide="Trash2" class="w-4 h-4"></i>
+                    </button>
+                    <div class="font-bold text-sm text-moom-burgundy pl-6">${item.name}</div>
+                    <div class="bg-moom-cream px-3 py-2 rounded-xl border border-moom-border/70 text-xs space-y-1">
+                        <div class="font-display font-bold text-moom-berry">العبارة: «${escapeSvgText(item.customText)}»</div>
+                        <div class="text-[11px] text-moom-dark/70">${item.fontName} • ${item.colorName}</div>
+                    </div>
+                    <div class="flex items-center justify-between pt-1">
+                        <span class="text-[11px] font-bold ${item.giftWrap ? 'text-moom-goldDark' : 'text-moom-dark/50'}">
+                            ${item.giftWrap ? '🎀 شامل تغليف شريطة مووم وكارت' : 'بدون تغليف إضافي'}
+                        </span>
+                        <span class="font-display text-lg font-black text-moom-burgundy">${item.price} ج.م</span>
+                    </div>
+                </div>`;
+            }).join('');
+
+            document.getElementById('cart-total-display').textContent = `${total} ج.م`;
+
+            // تحديث شريط التغليف والشحن المجاني (الحد 800 ج.م)
+            const threshold = 800;
+            const pct = Math.min(100, Math.round((total / threshold) * 100));
+            document.getElementById('free-wrap-bar').style.width = `${pct}%`;
+            document.getElementById('free-wrap-pct').textContent = `${pct}%`;
+            document.getElementById('free-wrap-msg').textContent = total >= threshold
+                ? '🎉 مبروك! حصلت على شحن وتغليف شريطة مووم الملكي مجاناً!'
+                : `أضف ${threshold - total} ج.م للحصول على شحن وتغليف ملكي مجاني!`;
+
+            lucide.createIcons();
+        }
+
+        function toggleCartDrawer(open) {
+            const drawer = document.getElementById('cart-drawer');
+            const backdrop = document.getElementById('cart-drawer-backdrop');
+            if (open) {
+                backdrop.classList.remove('hidden');
+                drawer.classList.remove('-translate-x-full');
+            } else {
+                backdrop.classList.add('hidden');
+                drawer.classList.add('-translate-x-full');
+            }
+        }
+
+        function openCheckoutModal() {
+            if (cartItems.length === 0) {
+                showToast('السلة فارغة، صمّم هديتك أولاً!');
+                return;
+            }
+            toggleCartDrawer(false);
+            const summary = document.getElementById('checkout-summary-box');
+            const total = cartItems.reduce((acc, i) => acc + i.price, 0);
+            summary.innerHTML = `
+                <div class="font-bold text-moom-burgundy mb-1">تفاصيل الهدايا المعتمدة للطباعة (${cartItems.length}):</div>
+                ${cartItems.map(i => `<div class="truncate">• ${i.name}: «${escapeSvgText(i.customText)}»</div>`).join('')}
+                <div class="pt-2 mt-2 border-t border-moom-border font-black text-sm text-moom-burgundy flex justify-between">
+                    <span>الإجمالي النهائي:</span>
+                    <span>${total} ج.م</span>
+                </div>
+            `;
+            const modal = document.getElementById('checkout-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeCheckoutModal() {
+            const modal = document.getElementById('checkout-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        // ==========================================================================
+        // التبديل بين وضع المتجر ووضع نظام التصميم + محمّل خط ثمانية الفوري
+        // ==========================================================================
+        function switchAppMode(mode) {
+            const storeView = document.getElementById('store-view');
+            const dsView = document.getElementById('design-system-view');
+            const btnStore = document.getElementById('mode-btn-store');
+            const btnDs = document.getElementById('mode-btn-ds');
+
+            if (mode === 'store') {
+                storeView.classList.remove('hidden');
+                dsView.classList.add('hidden');
+                btnStore.className = 'px-3.5 py-1 rounded-full font-bold transition-all bg-moom-gold text-moom-dark shadow-sm flex items-center gap-1.5';
+                btnDs.className = 'px-3.5 py-1 rounded-full font-medium transition-all text-moom-cream/80 hover:text-white flex items-center gap-1.5';
+            } else {
+                storeView.classList.add('hidden');
+                dsView.classList.remove('hidden');
+                btnDs.className = 'px-3.5 py-1 rounded-full font-bold transition-all bg-moom-gold text-moom-dark shadow-sm flex items-center gap-1.5';
+                btnStore.className = 'px-3.5 py-1 rounded-full font-medium transition-all text-moom-cream/80 hover:text-white flex items-center gap-1.5';
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        function ensureStoreMode() {
+            switchAppMode('store');
+        }
+
+        function scrollToStudio() {
+            ensureStoreMode();
+            document.getElementById('print-studio').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function openFontLoaderModal() {
+            const m = document.getElementById('font-loader-modal');
+            m.classList.remove('hidden');
+            m.classList.add('flex');
+        }
+
+        function closeFontLoaderModal() {
+            const m = document.getElementById('font-loader-modal');
+            m.classList.add('hidden');
+            m.classList.remove('flex');
+        }
+
+        // حقن ملفات خط ثمانية (.woff2 / .otf) مباشرة في المتصفح عبر FontFace API
+        async function injectLocalThmanyahFonts(event) {
+            const files = Array.from(event.target.files);
+            if (!files.length) return;
+
+            let loadedCount = 0;
+            const logEl = document.getElementById('loaded-fonts-log');
+            logEl.classList.remove('hidden');
+            logEl.innerHTML = 'جاري تحميل وتفعيل ملفات خط ثمانية...';
+
+            for (const file of files) {
+                try {
+                    const nameLower = file.name.toLowerCase();
+                    let family = 'thmanyahsans';
+                    if (nameLower.includes('display')) family = 'thmanyahserifdisplay';
+                    else if (nameLower.includes('text')) family = 'thmanyahseriftext';
+
+                    let weight = '400';
+                    if (nameLower.includes('light')) weight = '300';
+                    else if (nameLower.includes('medium')) weight = '500';
+                    else if (nameLower.includes('bold')) weight = '700';
+                    else if (nameLower.includes('black')) weight = '900';
+
+                    const buffer = await file.arrayBuffer();
+                    const fontFace = new FontFace(family, buffer, { weight });
+                    await fontFace.load();
+                    document.fonts.add(fontFace);
+                    loadedCount++;
+                } catch (err) {
+                    console.error('Error loading font file:', file.name, err);
+                }
+            }
+
+            logEl.innerHTML = `✅ تم تفعيل ${loadedCount} ملفات من عائلة «خط ثمانية» بنجاح على كافة عناصر المتجر والاستوديو!`;
+            document.getElementById('font-status-badge').textContent = `خط ثمانية (${loadedCount} أوزان مفعّلة)`;
+            updateStudioPreview();
+            renderCatalog();
+            showToast(`تم تفعيل ${loadedCount} ملفات من خط ثمانية بنجاح!`);
+        }
+
+        function copyHex(hex) {
+            const temp = document.createElement('textarea');
+            temp.value = hex;
+            document.body.appendChild(temp);
+            temp.select();
+            document.execCommand('copy');
+            document.body.removeChild(temp);
+            showToast(`تم نسخ كود اللون ${hex}`);
+        }
+
+        function copyCssSnippet() {
+            const code = document.getElementById('css-code-block').innerText;
+            const temp = document.createElement('textarea');
+            temp.value = code;
+            document.body.appendChild(temp);
+            temp.select();
+            document.execCommand('copy');
+            document.body.removeChild(temp);
+            showToast('تم نسخ كود CSS @font-face الخاص بخط ثمانية!');
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast-notification');
+            document.getElementById('toast-message').textContent = msg;
+            toast.classList.remove('translate-y-24', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-24', 'opacity-0');
+            }, 3200);
+        }
+
+        // تشغيل المكونات عند تحميل الصفحة
+        window.onload = function() {
+            setHeroShowcase(0);
+            updateStudioPreview();
+            renderCatalog();
+            renderUnboxingState();
+            renderCart();
+            lucide.createIcons();
+        };
+    </script>
+</body>
+</html>
